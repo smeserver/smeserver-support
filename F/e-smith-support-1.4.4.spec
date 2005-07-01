@@ -3,7 +3,7 @@ Summary: e-smith module to display support and licensing information
 %define language fr_CA
 Name: %{name}
 %define version 1.4.4
-%define release 06sme01
+%define release 06sme02
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -52,7 +52,7 @@ Requires: buffer
 Requires: bzip2
 Requires: bzip2-libs
 Requires: cdrecord
-Requires: centos-yumconf
+Requires: centos-release
 Requires: checkpassword
 Requires: checkpolicy
 Requires: chkconfig
@@ -338,6 +338,7 @@ Requires: perl-CGI-Persistent
 Requires: perl-Class-ParamParser
 Requires: perl-Clone
 Requires: perl-Convert-ASN1
+Requires: perl-Convert-TNEF
 Requires: perl-Crypt-Cracklib
 Requires: perl-Date-Calc
 Requires: perl-DateManip
@@ -346,17 +347,20 @@ Requires: perl-DBI
 Requires: perl-Digest-HMAC
 Requires: perl-Digest-SHA1
 Requires: perl-Error
+Requires: perl-File-MMagic
 Requires: perl-Filter
 Requires: perl-FreezeThaw
 Requires: perl-HTML-Parser
 Requires: perl-HTML-Tagset
 Requires: perl-I18N-AcceptLanguage
+Requires: perl-IO-stringy
 Requires: perl-LDAP
 Requires: perl-libwww-perl
 Requires: perl-Locale-gettext
 Requires: perl-Mail-RFC822-Address
 Requires: perl-Mail-SpamAssassin
 Requires: perl-MailTools
+Requires: perl-MIME-Tools
 Requires: perl-Net-DNS
 Requires: perl-Net-IPv4Addr
 Requires: perl-Net-Server
@@ -448,6 +452,7 @@ Requires: shadow-utils
 Requires: slang
 Requires: slocate
 Requires: SMEServer
+Requires: smeserver-qpsmtpd-tnef2mime
 Requires: smeserver-yum
 Requires: sortspam
 Requires: spamassassin
@@ -506,9 +511,13 @@ Requires: xorg-x11-Mesa-libGL
 Requires: yum
 Requires: zip
 Requires: zlib
-# BEGIN include requires.txt
+# END include requires.txt
 
 %changelog
+* Sat Jul 2 2005 Gordon Rowell <gordonr@gormand.com.au>
+- [1.4.4-06sme02]
+- Remove centos-yumconf, add centos-release to Requires:
+
 * Fri Jul 1 2005 Gordon Rowell <gordonr@gormand.com.au>
 - [1.4.4-06sme01]
 - Updated Requires lists for CentOS 4.1 version [SF: 1217914]

@@ -3,7 +3,7 @@ Summary: e-smith module to display support and licensing information
 %define language fr_CA
 Name: %{name}
 %define version 1.4.4
-%define release 06sme02
+%define release 06sme03
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -151,7 +151,6 @@ Requires: e-smith-radiusd
 Requires: e-smith-regedit
 Requires: e-smith-release
 Requires: e-smith-rpm
-Requires: e-smith-rp-pppoe
 Requires: e-smith-runit
 Requires: e-smith-samba
 Requires: e-smith-spamassassin
@@ -514,6 +513,10 @@ Requires: zlib
 # END include requires.txt
 
 %changelog
+* Sat Jul 4 2005 Shad L. Lords
+- [1.4.4-06sme03]
+- Remove e-smith-rp-pppoe as e-smith-base provides this now
+
 * Sat Jul 2 2005 Gordon Rowell <gordonr@gormand.com.au>
 - [1.4.4-06sme02]
 - Remove centos-yumconf, add centos-release to Requires:

@@ -357,8 +357,6 @@ Requires: perl-LDAP
 Requires: perl-libwww-perl
 Requires: perl-Locale-gettext
 Requires: perl-Mail-RFC822-Address
-Requires: perl-Mail-SpamAssassin
-Requires: perl-MailTools
 Requires: perl-MIME-Tools
 Requires: perl-Net-DNS
 Requires: perl-Net-IPv4Addr
@@ -516,6 +514,8 @@ Requires: zlib
 * Sat Jul 4 2005 Shad L. Lords
 - [1.4.4-06sme03]
 - Remove e-smith-rp-pppoe as e-smith-base provides this now
+- Change perl-MIME-Tools to perl-MIME-tools
+- Remove perl-Mail-SpamAssassin
 
 * Sat Jul 2 2005 Gordon Rowell <gordonr@gormand.com.au>
 - [1.4.4-06sme02]

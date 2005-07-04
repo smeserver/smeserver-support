@@ -357,7 +357,7 @@ Requires: perl-LDAP
 Requires: perl-libwww-perl
 Requires: perl-Locale-gettext
 Requires: perl-Mail-RFC822-Address
-Requires: perl-MIME-Tools
+Requires: perl-MIME-tools
 Requires: perl-Net-DNS
 Requires: perl-Net-IPv4Addr
 Requires: perl-Net-Server

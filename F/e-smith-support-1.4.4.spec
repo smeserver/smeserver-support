@@ -467,8 +467,6 @@ Requires: sysklogd
 Requires: syslinux
 Requires: sysreport
 Requires: sysstat
-Requires: system-config-keyboard
-Requires: system-config-mouse
 Requires: system-config-securitylevel-tui
 Requires: SysVinit
 Requires: tai64nunix

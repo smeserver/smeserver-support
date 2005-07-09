@@ -3,7 +3,7 @@ Summary: e-smith module to display support and licensing information
 %define language fr_CA
 Name: %{name}
 %define version 1.4.4
-%define release 06sme03
+%define release 06sme04
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -467,6 +467,9 @@ Requires: sysklogd
 Requires: syslinux
 Requires: sysreport
 Requires: sysstat
+Requires: system-config-keyboard
+Requires: system-config-mouse
+Requires: system-config-securitylevel-tui
 Requires: SysVinit
 Requires: tai64nunix
 Requires: tar
@@ -511,6 +514,10 @@ Requires: zlib
 # END include requires.txt
 
 %changelog
+* Sat Jul 11 2005 Shad L. Lords
+- [1.4.4-06sme04]
+- Update requires for system-config services
+
 * Sat Jul 4 2005 Shad L. Lords
 - [1.4.4-06sme03]
 - Remove e-smith-rp-pppoe as e-smith-base provides this now

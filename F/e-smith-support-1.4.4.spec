@@ -3,7 +3,7 @@ Summary: e-smith module to display support and licensing information
 %define language fr_CA
 Name: %{name}
 %define version 1.4.4
-%define release 06sme04
+%define release 06sme05
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -214,8 +214,10 @@ Requires: isdn4k-utils
 Requires: jwhois
 Requires: kbd
 Requires: kernel
+Requires: kernel-module-appletalk-2.6.9-11.EL
 Requires: kernel-module-ppp-2.6.9-11.EL
 Requires: kernel-smp
+Requires: kernel-smp-module-appletalk-2.6.9-11.EL
 Requires: kernel-smp-module-ppp-2.6.9-11.EL
 Requires: kernel-utils
 Requires: krb5-libs
@@ -512,7 +514,11 @@ Requires: zlib
 # END include requires.txt
 
 %changelog
-* Sat Jul 11 2005 Shad L. Lords
+* Sat Jul 10 2005 Shad L. Lords
+- [1.4.4-06sme05]
+- Add appletalk module to requires
+
+* Fri Jul 09 2005 Shad L. Lords
 - [1.4.4-06sme04]
 - Update requires for system-config services
 

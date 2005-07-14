@@ -3,7 +3,7 @@ Summary: e-smith module to display support and licensing information
 %define language fr_CA
 Name: %{name}
 %define version 1.4.4
-%define release 06sme05
+%define release 06sme06
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -66,7 +66,6 @@ Requires: cracklib
 Requires: cracklib-dicts
 Requires: crontabs
 Requires: cryptsetup
-Requires: cups
 Requires: cups-libs
 Requires: curl
 Requires: cvm
@@ -214,11 +213,11 @@ Requires: isdn4k-utils
 Requires: jwhois
 Requires: kbd
 Requires: kernel
-Requires: kernel-module-appletalk-2.6.9-11.EL
-Requires: kernel-module-ppp-2.6.9-11.EL
+Requires: kernel-module-appletalk
+Requires: kernel-module-ppp
 Requires: kernel-smp
-Requires: kernel-smp-module-appletalk-2.6.9-11.EL
-Requires: kernel-smp-module-ppp-2.6.9-11.EL
+Requires: kernel-smp-module-appletalk
+Requires: kernel-smp-module-ppp
 Requires: kernel-utils
 Requires: krb5-libs
 Requires: krb5-workstation
@@ -514,6 +513,10 @@ Requires: zlib
 # END include requires.txt
 
 %changelog
+* Wed Jul 13 2005 Shad L. Lords
+- [1.4.4-06sme06]
+- Update requires for appletalk, ppp, cups
+
 * Sat Jul 10 2005 Shad L. Lords
 - [1.4.4-06sme05]
 - Add appletalk module to requires

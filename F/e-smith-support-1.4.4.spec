@@ -3,7 +3,7 @@ Summary: e-smith module to display support and licensing information
 %define language fr_CA
 Name: %{name}
 %define version 1.4.4
-%define release 07sme01
+%define release 07sme02
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -52,6 +52,7 @@ Obsoletes: shapecfg
 Obsoletes: e-smith-samba = 2.1.0-10gjz
 Obsoletes: e-smith-telnet = 1.6.0-02
 Obsoletes: logwatch = 5.2.2-1sme01
+Obsoletes: proftpd = 5:1.2.9-es1
 Obsoletes: proftpd = 5:1.2.9-es3
 Obsoletes: qmailanalog = 0.70-03
 
@@ -175,6 +176,10 @@ Requires: xmlsec1-openssl
 # END: Section needed for upgrades
 
 %changelog
+* Fri Jul 15 2005 Shad L. Lords <slords@mail.com>
+- [1.4.4-07sme02]
+- Various additional fixes for upgrades
+
 * Thu Jul 14 2005 Shad L. Lords <slords@mail.com>
 - [1.4.4-07sme01]
 - Various fixes for 6.5RC1 upgrades

@@ -3,7 +3,7 @@ Summary: e-smith module to display support and licensing information
 %define language fr_CA
 Name: %{name}
 %define version 1.4.4
-%define release 06sme07
+%define release 07sme01
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -18,10 +18,9 @@ BuildRequires: e-smith-devtools >= 1.7.5
 BuildArchitectures: noarch
 Provides: server-manager-images
 Conflicts: ServiceLink-support
-AutoReqProv: no
-
 Obsoletes: e-smith-blades
 Obsoletes: e-smith-keys
+AutoReqProv: no
 
 # BEGIN: Section needed for upgrades
 Obsoletes: autopassword
@@ -176,34 +175,17 @@ Requires: xmlsec1-openssl
 # END: Section needed for upgrades
 
 %changelog
-* Thu Jul 14 2005 Shad L. Lords
-- [1.4.4-06sme07]
-- Start moving requires to correct places
-
-* Wed Jul 13 2005 Shad L. Lords
-- [1.4.4-06sme06]
-- Update requires for appletalk, ppp, cups
-
-* Sat Jul 10 2005 Shad L. Lords
-- [1.4.4-06sme05]
-- Add appletalk module to requires
-
-* Fri Jul 09 2005 Shad L. Lords
-- [1.4.4-06sme04]
-- Update requires for system-config services
-
-* Sat Jul 4 2005 Shad L. Lords
-- [1.4.4-06sme03]
-- Remove e-smith-rp-pppoe as e-smith-base provides this now
-- Change perl-MIME-Tools to perl-MIME-tools
-- Remove perl-Mail-SpamAssassin
-
-* Sat Jul 2 2005 Gordon Rowell <gordonr@gormand.com.au>
-- [1.4.4-06sme02]
-- Remove centos-yumconf, add centos-release to Requires:
+* Thu Jul 14 2005 Shad L. Lords <slords@mail.com>
+- [1.4.4-07sme01]
+- Various fixes for 6.5RC1 upgrades
 
 * Fri Jul 1 2005 Gordon Rowell <gordonr@gormand.com.au>
-- [1.4.4-06sme01]
+* Thu Jul 14 2005 Charlie Brady <charlieb@e-smith.com>
+- [1.4.4-07]
+- Various updates provided by Shad Lords.
+
+* Fri Jul 1 2005 Gordon Rowell <gordonr@gormand.com.au>
+- [1.4.4-06]
 - Updated Requires lists for CentOS 4.1 version [SF: 1217914]
 
 * Wed Jun 15 2005 Charlie Brady <charlieb@e-smith.com>

@@ -53,7 +53,6 @@ Obsoletes: e-smith-telnet = 1.6.0-02
 Obsoletes: logwatch = 5.2.2-1sme01
 Obsoletes: proftpd = 5:1.2.9-es1
 Obsoletes: proftpd = 5:1.2.9-es3
-Obsoletes: qmailanalog = 0.70-03
 
 Requires: acl
 Requires: acpid

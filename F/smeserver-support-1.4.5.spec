@@ -3,7 +3,7 @@ Summary: SME Server module to display support and licensing information
 %define language fr_CA
 Name: %{name}
 %define version 1.4.5
-%define release 02
+%define release 03
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -53,12 +53,14 @@ Obsoletes: e-smith-samba = 2.1.0-10gjz
 Requires: e-smith-samba
 Obsoletes: e-smith-telnet = 1.6.0-02
 Obsoletes: logwatch = 5.2.2-1sme01
-Requires: logwatch
 
 # Specific package versions we dont want.
 # These should be re-pulled by other e-smith packages.
+Obsoletes: php = 4.3.10-01es01
+Obsoletes: php-imap = 4.3.10-01es01
+Obsoletes: php-ldap = 4.3.10-01es01
+Obsoletes: php-mysql = 4.3.10-01es01
 Obsoletes: proftpd = 5:1.2.9-es1
-Obsoletes: proftpd = 5:1.2.9-es2
 Obsoletes: proftpd = 5:1.2.9-es3
 Obsoletes: proftpd = 5:1.2.9-es4
 Obsoletes: squid = 9:2.5.STABLE3-6.3E.2es01
@@ -181,6 +183,10 @@ Obsoletes: squid = 9:2.5.STABLE3-6.3E.2es01
 ## # END: Section needed for upgrades
 
 %changelog
+* Fri Aug 12 2005 Shad L. Lords <slords@mail.com>
+- [1.4.5-03]
+- Add obsoletes for specific php versions
+
 * Tue Aug 09 2005 Shad L. Lords <slords@mail.com>
 - [1.4.5-02]
 - Remove Requires and Obsoletes.  Start moving to correct places.

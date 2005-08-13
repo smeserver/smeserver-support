@@ -3,7 +3,7 @@ Summary: SME Server module to display support and licensing information
 %define language fr_CA
 Name: %{name}
 %define version 1.4.5
-%define release 04
+%define release 05
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -28,6 +28,9 @@ Requires: e-smith-samba
 
 # Specific package versions we dont want.
 # These should be re-pulled by other e-smith packages.
+Obsoletes: perl-gettext = 1.01-10
+Obsoletes: perl-perl-ldap = 0.22-10
+Obsoletes: perl-perl-ldap = 0.31-1
 Obsoletes: php = 4.3.10-01es01
 Obsoletes: php-imap = 4.3.10-01es01
 Obsoletes: php-ldap = 4.3.10-01es01
@@ -40,15 +43,31 @@ Obsoletes: squid = 9:2.5.STABLE3-6.3E.2es01
 # Specific package versions we dont want.
 # These were installed with older version but aren't needed.
 Obsoletes: authconfig = 4.2.8-4
+Obsoletes: e-smith-telnet = 1.6.0-02
+Obsoletes: dietlibc = 0.15-2
+Obsoletes: logwatch = 5.2.2-1sme01
 Obsoletes: mysql-devel = 3.23.56-1.73
+Obsoletes: mysqlclient9 = 3.23.22-8
 Obsoletes: openldap-clients = 2.0.27-2.7.3es
 Obsoletes: perl-Crypt-SSLeay = 0.35-15
+Obsoletes: perl-Digest-Nilsimsa = 0.06-1
+Obsoletes: perl-Filter-Handle = 0.03-10
+Obsoletes: perl-I18N-LangTags = 0.27-1es3
 Obsoletes: perl-NDBM_File = 1:1.75-34.99.6
-Obsoletes: e-smith-telnet = 1.6.0-02
-Obsoletes: logwatch = 5.2.2-1sme01
+Obsoletes: perl-Net-Ping = 2.28-1
+Obsoletes: perl-Proc-PID_File = 0.05-1
+Obsoletes: perl-Test-Harness-Straps = 0.10-1
+Obsoletes: perl-Test-Simple = 0.42-1
+Obsoletes: perl-Text-Wrapper = 1.000-10
 Obsoletes: ppp-modules
+Obsoletes: sortspam = 1.0.0-01
+Obsoletes: telnet-server = 0.17-20
 
 %changelog
+* Sat Aug 13 2005 Shad L. Lords <slords@mail.com>
+- [1.4.5-05]
+- Lots up Obsoletes updates
+
 * Fri Aug 12 2005 Shad L. Lords <slords@mail.com>
 - [1.4.5-04]
 - Add authconfig, mysql-devel, openldap-clients,

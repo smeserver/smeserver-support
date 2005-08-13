@@ -3,7 +3,7 @@ Summary: SME Server module to display support and licensing information
 %define language fr_CA
 Name: %{name}
 %define version 1.4.5
-%define release 03
+%define release 04
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -21,38 +21,10 @@ Obsoletes: e-smith-keys
 Obsoletes: e-smith-support
 AutoReqProv: no
 
-## # BEGIN: Section needed for upgrades
-## Obsoletes: autopassword
-## Obsoletes: bdflush
-## Obsoletes: e-smith-boot-image
-## Obsoletes: e-smith-reinstall-floppy 
-## Obsoletes: libsmbpw
-## Obsoletes: lilo
-## Obsoletes: mm
-## Obsoletes: mysqlclient9
-## Obsoletes: ncurses4
-## Obsoletes: perl-Filter-Handle
-## Obsoletes: perl-gettext
-## Obsoletes: perl-I18N-LangTags
-## Obsoletes: perl-NDBM_File
-## Obsoletes: perl-Net-Ping
-## Obsoletes: perl-perl-ldap
-## Obsoletes: perl-Proc-PID_File
-## Obsoletes: perl-Test-Harness-Straps
-## Obsoletes: perl-Test-Simple
-## Obsoletes: perl-Text-Wrapper
-## Obsoletes: ppp-modules
-## Obsoletes: pwdb
-## Obsoletes: raidtools
-## Obsoletes: sash
-## Obsoletes: shapecfg
-
 # Specific package versions we dont want.
 # These aren't being pulled by anything else.
 Obsoletes: e-smith-samba = 2.1.0-10gjz
 Requires: e-smith-samba
-Obsoletes: e-smith-telnet = 1.6.0-02
-Obsoletes: logwatch = 5.2.2-1sme01
 
 # Specific package versions we dont want.
 # These should be re-pulled by other e-smith packages.
@@ -65,124 +37,25 @@ Obsoletes: proftpd = 5:1.2.9-es3
 Obsoletes: proftpd = 5:1.2.9-es4
 Obsoletes: squid = 9:2.5.STABLE3-6.3E.2es01
 
-## Requires: acl
-## Requires: acpid
-## Requires: aspell-ca
-## Requires: aspell-ca
-## Requires: aspell-en
-## Requires: aspell-es
-## Requires: aspell-fr
-## Requires: attr
-## Requires: audit
-## Requires: autofs
-## Requires: bridge-utils
-## Requires: checkpolicy
-## Requires: cryptsetup
-## Requires: cyrus-sasl-plain
-## Requires: desktop-file-utils
-## Requires: dmraid
-## Requires: dos2unix
-## Requires: dstat
-## Requires: dvd+rw-tools
-## Requires: elinks
-## Requires: e-smith-clamav
-## Requires: e-smith-samba
-## Requires: e-smith-spamassassin
-## Requires: fbset
-## Requires: finger
-## Requires: gnutls
-## Requires: htmlview
-## Requires: htop
-## Requires: ipsec-tools
-## Requires: kernel-module-appletalk
-## Requires: kernel-module-ppp
-## Requires: kernel-smp-module-appletalk
-## Requires: kernel-smp-module-ppp
-## Requires: krb5-workstation
-## Requires: lftp
-## Requires: lha
-## Requires: libgcrypt
-## Requires: libgpg-error
-## Requires: libwvstreams
-## Requires: libxml2-python
-## Requires: libxslt
-## Requires: lrzsz
-## Requires: m4
-## Requires: mgetty
-## Requires: mkisofs
-## Requires: mod_python
-## Requires: mtr
-## Requires: nano
-## Requires: nc
-## Requires: netconfig
-## Requires: net-snmp-perl
-## Requires: newt-perl
-## Requires: nscd
-## Requires: nss_db
-## Requires: nss_ldap
-## Requires: openssl-perl
-## Requires: pam_ccreds
-## Requires: pam_krb5
-## Requires: pam_passwdqc
-## Requires: pam_smb
-## Requires: parted
-## Requires: pax
-## Requires: pdksh
-## Requires: pear-date
-## Requires: pear-db
-## Requires: pear-file
-## Requires: pear-log
-## Requires: pear-mail
-## Requires: pear-mail_mime
-## Requires: perl-Bit-Vector
-## Requires: perl-Date-Calc
-## Requires: perl-LDAP
-## Requires: perl-Locale-gettext
-## Requires: perl-Parse-Syslog
-## Requires: perl-Statistics-Distributions
-## Requires: perl-Time-modules
-## Requires: perl-Unicode-String
-## Requires: perl-XML-NamespaceSupport
-## Requires: perl-XML-SAX
-## Requires: php-domxml
-## Requires: php-gd
-## Requires: php-mbstring
-## Requires: php-xmlrpc
-## Requires: pinfo
-## Requires: policycoreutils
-## Requires: prelink
-## Requires: psacct
-## Requires: pyOpenSSL
-## Requires: qmailanalog
-## Requires: rdate
-## Requires: redhat-lsb
-## Requires: redhat-menus
-## Requires: rhnlib
-## Requires: rkhunter
-## Requires: rpmdb-CentOS
-## Requires: rssh
-## Requires: schedutils
-## Requires: selinux-policy-targeted
-## Requires: setarch
-## Requires: setools
-## Requires: setuptool
-## Requires: smeserver-yum
-## Requires: specspo
-## Requires: star
-## Requires: statserial
-## Requires: symlinks
-## Requires: sysfsutils
-## Requires: sysreport
-## Requires: sysstat
-## Requires: system-config-securitylevel-tui
-## Requires: unix2dos
-## Requires: vconfig
-## Requires: whiptail
-## Requires: xmlsec1
-## Requires: xmlsec1-openssl
-## # END: Section needed for upgrades
+# Specific package versions we dont want.
+# These were installed with older version but aren't needed.
+Obsoletes: authconfig = 4.2.8-4
+Obsoletes: mysql-devel = 3.23.56-1.73
+Obsoletes: openldap-clients = 2.0.27-2.7.3es
+Obsoletes: perl-Crypt-SSLeay = 0.35-15
+Obsoletes: perl-NDBM_File = 1:1.75-34.99.6
+Obsoletes: e-smith-telnet = 1.6.0-02
+Obsoletes: logwatch = 5.2.2-1sme01
+Obsoletes: ppp-modules
 
 %changelog
+* Fri Aug 12 2005 Shad L. Lords <slords@mail.com>
+- [1.4.5-04]
+- Add authconfig, mysql-devel, openldap-clients,
+  perl-Crypt-SSLeay, perl-NDBM_File specific and  
+  ppp-modules generic obsoletes so they are removed 
+  on upgrade.
+
 * Fri Aug 12 2005 Shad L. Lords <slords@mail.com>
 - [1.4.5-03]
 - Add obsoletes for specific php versions

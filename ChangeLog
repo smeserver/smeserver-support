@@ -18,3 +18,12 @@ Fri Aug 12 14:18:16 2005                           Shad Lords (slords)
 
 
 ----------------------------------------------------------------------
+Fri Aug 12 20:35:02 2005                           Shad Lords (slords)
+
+- Add authconfig, mysql-devel, openldap-clients,
+  perl-Crypt-SSLeay, perl-NDBM_File specific and
+  ppp-modules generic obsoletes so they are removed 
+  on upgrade.
+
+
+----------------------------------------------------------------------

@@ -3,7 +3,7 @@ Summary: SME Server module to display support and licensing information
 %define language fr_CA
 Name: %{name}
 %define version 1.4.5
-%define release 05
+%define release 06
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -20,6 +20,33 @@ Obsoletes: e-smith-blades
 Obsoletes: e-smith-keys
 Obsoletes: e-smith-support
 AutoReqProv: no
+
+# Still don't know where this goes
+Requires: audit
+Requires: checkpolicy
+Requires: cryptsetup
+Requires: php-domxml
+
+# Stuff that doesn't really have a home but we still want
+Requires: attr
+Requires: dmraid
+Requires: dos2unix
+Requires: dstat
+Requires: dvd+rw-tools
+Requires: elinks
+Requires: htop
+Requires: mkisofs
+Requires: mtr
+Requires: nano
+Requires: nc
+Requires: prelink
+Requires: psacct
+Requires: system-config-securitylevel-tui
+Requires: unix2dos
+
+# New features that we want to pull in on upgrades
+Requires: rkhunter
+Requires: smeserver-yum
 
 # Specific package versions we dont want.
 # These aren't being pulled by anything else.
@@ -47,6 +74,7 @@ Obsoletes: e-smith-telnet = 1.6.0-02
 Obsoletes: dietlibc = 0.15-2
 Obsoletes: logwatch = 5.2.2-1sme01
 Obsoletes: mysql-devel = 3.23.56-1.73
+Obsoletes: mysql-devel = 3.23.58-1.73
 Obsoletes: mysqlclient9 = 3.23.22-8
 Obsoletes: openldap-clients = 2.0.27-2.7.3es
 Obsoletes: perl-Crypt-SSLeay = 0.35-15
@@ -61,9 +89,15 @@ Obsoletes: perl-Test-Simple = 0.42-1
 Obsoletes: perl-Text-Wrapper = 1.000-10
 Obsoletes: ppp-modules
 Obsoletes: sortspam = 1.0.0-01
+Obsoletes: sortspam = 1.1.0-05sme02
 Obsoletes: telnet-server = 0.17-20
 
 %changelog
+* Thu Aug 18 2005 Shad L. Lords <slords@mail.com>
+- [1.4.5-06]
+- Obsoletes/Requires updates for beta1.
+  Still lots of work to be done.
+
 * Sat Aug 13 2005 Shad L. Lords <slords@mail.com>
 - [1.4.5-05]
 - Lots up Obsoletes updates

@@ -21,10 +21,6 @@ Obsoletes: e-smith-keys
 Obsoletes: e-smith-support
 AutoReqProv: no
 
-# Still don't know where these goes
-Requires: cryptsetup
-Requires: php-domxml
-
 # New features that we want to pull in on upgrades
 Requires: rkhunter
 Requires: smeserver-yum

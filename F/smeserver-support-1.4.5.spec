@@ -21,28 +21,9 @@ Obsoletes: e-smith-keys
 Obsoletes: e-smith-support
 AutoReqProv: no
 
-# Still don't know where this goes
-Requires: audit
-Requires: checkpolicy
+# Still don't know where these goes
 Requires: cryptsetup
 Requires: php-domxml
-
-# Stuff that doesn't really have a home but we still want
-Requires: attr
-Requires: dmraid
-Requires: dos2unix
-Requires: dstat
-Requires: dvd+rw-tools
-Requires: elinks
-Requires: htop
-Requires: mkisofs
-Requires: mtr
-Requires: nano
-Requires: nc
-Requires: prelink
-Requires: psacct
-Requires: system-config-securitylevel-tui
-Requires: unix2dos
 
 # New features that we want to pull in on upgrades
 Requires: rkhunter

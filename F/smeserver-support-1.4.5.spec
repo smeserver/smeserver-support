@@ -51,6 +51,8 @@ Obsoletes: squid = 9:2.5.STABLE3-6.3E.2es01
 # These were installed with older version but aren't needed.
 Obsoletes: authconfig = 4.2.8-4
 Obsoletes: bind-utils = 9.2.1-1.7x.2
+Obsoletes: cvs = 1.11.1p1-7es02
+Obsoletes: cvs = 1.11.1p1-16.legacy.2
 Obsoletes: dietlibc = 0.15-2
 Obsoletes: e-smith-telnet = 1.6.0-02
 Obsoletes: gd = 1.8.4-4

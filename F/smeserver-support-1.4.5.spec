@@ -3,7 +3,7 @@ Summary: SME Server module to display support and licensing information
 %define language fr_CA
 Name: %{name}
 %define version 1.4.5
-%define release 06
+%define release 07
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -20,6 +20,9 @@ Obsoletes: e-smith-blades
 Obsoletes: e-smith-keys
 Obsoletes: e-smith-support
 AutoReqProv: no
+
+# Need to add this to imp/horde instead of here
+Requires: php-domxml
 
 # New features that we want to pull in on upgrades
 Requires: rkhunter
@@ -47,12 +50,14 @@ Obsoletes: squid = 9:2.5.STABLE3-6.3E.2es01
 # Specific package versions we dont want.
 # These were installed with older version but aren't needed.
 Obsoletes: authconfig = 4.2.8-4
-Obsoletes: e-smith-telnet = 1.6.0-02
+Obsoletes: bind-utils = 9.2.1-1.7x.2
 Obsoletes: dietlibc = 0.15-2
+Obsoletes: e-smith-telnet = 1.6.0-02
+Obsoletes: gd = 1.8.4-4
 Obsoletes: logwatch = 5.2.2-1sme01
+Obsoletes: mysqlclient9 = 3.23.22-8
 Obsoletes: mysql-devel = 3.23.56-1.73
 Obsoletes: mysql-devel = 3.23.58-1.73
-Obsoletes: mysqlclient9 = 3.23.22-8
 Obsoletes: openldap-clients = 2.0.27-2.7.3es
 Obsoletes: perl-Crypt-SSLeay = 0.35-15
 Obsoletes: perl-Digest-Nilsimsa = 0.06-1
@@ -65,11 +70,16 @@ Obsoletes: perl-Test-Harness-Straps = 0.10-1
 Obsoletes: perl-Test-Simple = 0.42-1
 Obsoletes: perl-Text-Wrapper = 1.000-10
 Obsoletes: ppp-modules
+Obsoletes: rpm-build = 4.0.4-7x.18
 Obsoletes: sortspam = 1.0.0-01
 Obsoletes: sortspam = 1.1.0-05sme02
 Obsoletes: telnet-server = 0.17-20
 
 %changelog
+* Thu Aug 18 2005 Shad L. Lords <slords@mail.com>
+- [1.4.5-07]
+- More Obsoletes/Requires updates
+
 * Thu Aug 18 2005 Shad L. Lords <slords@mail.com>
 - [1.4.5-06]
 - Obsoletes/Requires updates for beta1.

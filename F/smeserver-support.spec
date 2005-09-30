@@ -2,14 +2,15 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 %define language fr_CA
 Name: %{name}
-%define version 1.4.5
-%define release 07
+%define version 1.4.6
+%define release 02
 Version: %{version}
 Release: %{release}
 License: GPL
 Vendor: SME Server Developers
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
+Patch0: smeserver-support-1.4.6-italian.patch2
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -78,6 +79,14 @@ Obsoletes: sortspam = 1.1.0-05sme02
 Obsoletes: telnet-server = 0.17-20
 
 %changelog
+* Mon Sep 26 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.6-02
+- Added Italian L10N - Thanks Filippo Carletti [SF: 1309266]
+
+* Mon Sep 26 2005 Gordon Rowell <gordonr@gormand.com.au>
+- [1.4.6-01]
+- Roll patches up to 1.4.5-07
+- Added German L10N - Thanks Dietmar Berteld [SF: 1293325]
+
 * Thu Aug 18 2005 Shad L. Lords <slords@mail.com>
 - [1.4.5-07]
 - More Obsoletes/Requires updates
@@ -322,6 +331,7 @@ SME Server module to display support and licensing information
 
 %prep
 %setup
+%patch0 -p1
 rm -f root/etc/e-smith/web/common/e-smith-manager.gif
 
 %build
@@ -338,7 +348,7 @@ do
     /sbin/e-smith/validate-lexicon $lexicon
 done
 
-for lang in en-us es fr
+for lang in de en-us es fr
 do
   mkdir -p root/etc/e-smith/locale/${lang}/etc/e-smith/web/functions
   ln -s initial.cgi root/etc/e-smith/locale/${lang}/etc/e-smith/web/functions/index.cgi

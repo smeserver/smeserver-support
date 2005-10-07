@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 %define language fr_CA
 Name: %{name}
-%define version 1.4.6
+%define version 1.4.7
 %define release 02
 Version: %{version}
 Release: %{release}
@@ -10,7 +10,6 @@ License: GPL
 Vendor: SME Server Developers
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
-Patch0: smeserver-support-1.4.6-italian.patch2
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -28,6 +27,12 @@ Requires: php-domxml
 # New features that we want to pull in on upgrades
 Requires: rkhunter
 Requires: smeserver-yum
+
+# Kernel module fix
+Requires: kernel-module-st
+
+# This one should probably be in e-smith-base
+Requires: kernel-module-slip
 
 # Specific package versions we dont want.
 # These aren't being pulled by anything else.
@@ -79,6 +84,13 @@ Obsoletes: sortspam = 1.1.0-05sme02
 Obsoletes: telnet-server = 0.17-20
 
 %changelog
+* Fri Oct 7 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-02
+- Pull in kernel-module-st so flexbackup works [SF: 1254300]
+- Pull in kernel-module-slip for dialup support [SF: 1293606]
+
+* Fri Oct 7 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-01
+- Roll tarball, patches to 1.4.6-02
+
 * Mon Sep 26 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.6-02
 - Added Italian L10N - Thanks Filippo Carletti [SF: 1309266]
 
@@ -331,7 +343,6 @@ SME Server module to display support and licensing information
 
 %prep
 %setup
-%patch0 -p1
 rm -f root/etc/e-smith/web/common/e-smith-manager.gif
 
 %build

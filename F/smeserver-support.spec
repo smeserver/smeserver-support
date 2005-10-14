@@ -3,7 +3,7 @@ Summary: SME Server module to display support and licensing information
 %define language fr_CA
 Name: %{name}
 %define version 1.4.7
-%define release 02
+%define release 04
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -84,6 +84,12 @@ Obsoletes: sortspam = 1.1.0-05sme02
 Obsoletes: telnet-server = 0.17-20
 
 %changelog
+* Fri Oct 14 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-04
+- Move all L10Ns to smeserver-locale [SF: 1309520]
+
+* Mon Oct 10 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-03
+- Bump version to force update
+
 * Fri Oct 7 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-02
 - Pull in kernel-module-st so flexbackup works [SF: 1254300]
 - Pull in kernel-module-slip for dialup support [SF: 1293606]
@@ -344,26 +350,17 @@ SME Server module to display support and licensing information
 %prep
 %setup
 rm -f root/etc/e-smith/web/common/e-smith-manager.gif
+rm -rf root/etc/e-smith/locale/de
+rm -rf root/etc/e-smith/locale/fr
+rm -rf root/etc/e-smith/locale/es
+rm -rf root/etc/e-smith/locale/it
+rm -rf root/etc/e-smith/licenses/fr
+rm -rf root/etc/e-smith/licenses/fr_CA
 
 %build
 perl createlinks
 
-mkdir -p root/etc/e-smith/licenses/{fr_CA,fr}
-cp root/etc/e-smith/licenses/{en_US,fr_CA}/00Unsupported
-cp root/etc/e-smith/licenses/{en_US,fr}/00Unsupported
-
-LEXICONS=$(find root/etc/e-smith/locale -type f | grep -v CVS)
-
-for lexicon in $LEXICONS
-do
-    /sbin/e-smith/validate-lexicon $lexicon
-done
-
-for lang in de en-us es fr
-do
-  mkdir -p root/etc/e-smith/locale/${lang}/etc/e-smith/web/functions
-  ln -s initial.cgi root/etc/e-smith/locale/${lang}/etc/e-smith/web/functions/index.cgi
-done
+ln -s initial.cgi root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/index.cgi
 
 %install
 rm -rf $RPM_BUILD_ROOT

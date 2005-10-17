@@ -1,9 +1,8 @@
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
-%define language fr_CA
 Name: %{name}
 %define version 1.4.7
-%define release 04
+%define release 06
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -39,7 +38,12 @@ Requires: kernel-module-slip
 Obsoletes: e-smith-samba = 2.1.0-10gjz
 Requires: e-smith-samba
 
-# Specific package versions we dont want.
+# Pull in locales so we have a smooth language upgrade [SF: 1309520]
+Requires: smeserver-locale-de
+Requires: smeserver-locale-es
+Requires: smeserver-locale-fr
+Requires: smeserver-locale-it
+
 # These should be re-pulled by other e-smith packages.
 Obsoletes: perl-gettext = 1.01-10
 Obsoletes: perl-perl-ldap = 0.22-10
@@ -84,6 +88,13 @@ Obsoletes: sortspam = 1.1.0-05sme02
 Obsoletes: telnet-server = 0.17-20
 
 %changelog
+* Mon Oct 17 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-06
+- Add symlink to tux for splash.xpm.gz [SF: 1295038]
+- Remove unused language macro definition from SPEC file
+
+* Sat Oct 15 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-05
+- And add dependencies for smeserver-locale-{de,es,fr,it} [SF: 1309520]
+
 * Fri Oct 14 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-04
 - Move all L10Ns to smeserver-locale [SF: 1309520]
 
@@ -361,6 +372,9 @@ rm -rf root/etc/e-smith/licenses/fr_CA
 perl createlinks
 
 ln -s initial.cgi root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/index.cgi
+
+mkdir -p root/boot/grub
+ln -s tux.xpm.gz root/boot/grub/splash.xpm.gz
 
 %install
 rm -rf $RPM_BUILD_ROOT

@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.7
-%define release 06
+%define release 07
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -88,6 +88,9 @@ Obsoletes: sortspam = 1.1.0-05sme02
 Obsoletes: telnet-server = 0.17-20
 
 %changelog
+* Mon Oct 17 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-07
+- Make symlink to tux in post scriptlet [SF: 1295038]
+
 * Mon Oct 17 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-06
 - Add symlink to tux for splash.xpm.gz [SF: 1295038]
 - Remove unused language macro definition from SPEC file
@@ -373,9 +376,6 @@ perl createlinks
 
 ln -s initial.cgi root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/index.cgi
 
-mkdir -p root/boot/grub
-ln -s tux.xpm.gz root/boot/grub/splash.xpm.gz
-
 %install
 rm -rf $RPM_BUILD_ROOT
 (cd root ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
@@ -386,10 +386,9 @@ rm -f %{name}-%{version}-%{release}-filelist
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%pre
-%preun
 %post
-%postun
+[ -f /boot/grub/splash.xpm.gz ] || ln -s tux.xpm.gz /boot/grub/splash.xpm.gz
+/bin/true
 
 %files -f %{name}-%{version}-%{release}-filelist
 %defattr(-,root,root)

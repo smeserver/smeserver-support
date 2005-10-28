@@ -81,3 +81,7 @@ Mon Oct 17 17:29:41 2005                       Gordon Rowell (gordonr)
 
 Create symlink in %post
 ----------------------------------------------------------------------
+Fri Oct 28 21:53:39 2005                       Gordon Rowell (gordonr)
+
+Remove dependency
+----------------------------------------------------------------------

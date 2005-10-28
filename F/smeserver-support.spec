@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.7
-%define release 07
+%define release 08
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -26,9 +26,6 @@ Requires: php-domxml
 # New features that we want to pull in on upgrades
 Requires: rkhunter
 Requires: smeserver-yum
-
-# Kernel module fix
-Requires: kernel-module-st
 
 # This one should probably be in e-smith-base
 Requires: kernel-module-slip
@@ -88,6 +85,9 @@ Obsoletes: sortspam = 1.1.0-05sme02
 Obsoletes: telnet-server = 0.17-20
 
 %changelog
+* Fri Oct 24 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-08
+- Remove kenel-module-st - patch is in the CentOS 4.2 kernel
+
 * Mon Oct 17 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-07
 - Make symlink to tux in post scriptlet [SF: 1295038]
 

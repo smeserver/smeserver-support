@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.7
-%define release 08
+%define release 10
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -19,6 +19,9 @@ Obsoletes: e-smith-blades
 Obsoletes: e-smith-keys
 Obsoletes: e-smith-support
 AutoReqProv: no
+
+# XXX - FIXME - pam should require this, shouldn't it?
+Requires: audit-libs
 
 # Need to add this to imp/horde instead of here
 Requires: php-domxml
@@ -62,6 +65,7 @@ Obsoletes: cvs = 1.11.1p1-7es02
 Obsoletes: cvs = 1.11.1p1-16.legacy.2
 Obsoletes: dietlibc = 0.15-2
 Obsoletes: e-smith-telnet = 1.6.0-02
+Obsoletes: e-smith-reinstall-floppy <= 1.12.0-01
 Obsoletes: gd = 1.8.4-4
 Obsoletes: logwatch = 5.2.2-1sme01
 Obsoletes: mysqlclient9 = 3.23.22-8
@@ -85,6 +89,12 @@ Obsoletes: sortspam = 1.1.0-05sme02
 Obsoletes: telnet-server = 0.17-20
 
 %changelog
+* Mon Oct 31 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-10
+- Obsolete e-smith-reinstall-floppy [SF: 1342860]
+
+* Sat Oct 25 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-09
+- Add dependency on audit-libs
+
 * Fri Oct 24 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-08
 - Remove kenel-module-st - patch is in the CentOS 4.2 kernel
 

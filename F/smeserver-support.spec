@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.7
-%define release 10
+%define release 11
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -22,9 +22,6 @@ AutoReqProv: no
 
 # XXX - FIXME - pam should require this, shouldn't it?
 Requires: audit-libs
-
-# Need to add this to imp/horde instead of here
-Requires: php-domxml
 
 # New features that we want to pull in on upgrades
 Requires: rkhunter
@@ -89,6 +86,9 @@ Obsoletes: sortspam = 1.1.0-05sme02
 Obsoletes: telnet-server = 0.17-20
 
 %changelog
+* Mon Nov 14 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-11
+- Removed Requires for php-domxml - now in e-smith-horde [SF: 1313299]
+
 * Mon Oct 31 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-10
 - Obsolete e-smith-reinstall-floppy [SF: 1342860]
 

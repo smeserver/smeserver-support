@@ -97,3 +97,7 @@ Mon Nov 14 12:00:30 2005                       Gordon Rowell (gordonr)
 
 Move php-domxml dependency to e-smith-horde
 ----------------------------------------------------------------------
+Wed Nov 16 11:30:23 2005                       Gordon Rowell (gordonr)
+
+Add conflicts header
+----------------------------------------------------------------------

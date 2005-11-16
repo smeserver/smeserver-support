@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.7
-%define release 11
+%define release 13
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -20,6 +20,9 @@ Obsoletes: e-smith-keys
 Obsoletes: e-smith-support
 AutoReqProv: no
 
+# SF: 1357548
+Conflicts: selinux-policy-targeted
+
 # XXX - FIXME - pam should require this, shouldn't it?
 Requires: audit-libs
 
@@ -29,6 +32,7 @@ Requires: smeserver-yum
 
 # This one should probably be in e-smith-base
 Requires: kernel-module-slip
+Requires: kernel-smp-module-slip
 
 # Specific package versions we dont want.
 # These aren't being pulled by anything else.
@@ -86,6 +90,12 @@ Obsoletes: sortspam = 1.1.0-05sme02
 Obsoletes: telnet-server = 0.17-20
 
 %changelog
+* Wed Nov 16 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-13
+- Add Conflicts: selinux-policy-targeted [SF: 1357548]
+
+* Mon Nov 14 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-12
+- Add requires for kernel-smp-module-slip [SF: 1356104]
+
 * Mon Nov 14 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-11
 - Removed Requires for php-domxml - now in e-smith-horde [SF: 1313299]
 

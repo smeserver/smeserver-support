@@ -2,13 +2,14 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.7
-%define release 13
+%define release 14
 Version: %{version}
 Release: %{release}
 License: GPL
 Vendor: SME Server Developers
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
+Patch0: smeserver-support-1.4.7-motd.patch3
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -90,6 +91,10 @@ Obsoletes: sortspam = 1.1.0-05sme02
 Obsoletes: telnet-server = 0.17-20
 
 %changelog
+* Wed Nov 16 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-14
+- Add templates for /etc/{issue,issue.net,motd}, all generated from
+  the /etc/motd template [SF: 1261360]
+
 * Wed Nov 16 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-13
 - Add Conflicts: selinux-policy-targeted [SF: 1357548]
 
@@ -383,6 +388,8 @@ SME Server module to display support and licensing information
 
 %prep
 %setup
+%patch0 -p1
+
 rm -f root/etc/e-smith/web/common/e-smith-manager.gif
 rm -rf root/etc/e-smith/locale/de
 rm -rf root/etc/e-smith/locale/fr

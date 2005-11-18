@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.7
-%define release 14
+%define release 16
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -10,6 +10,9 @@ Vendor: SME Server Developers
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 Patch0: smeserver-support-1.4.7-motd.patch3
+Patch1: smeserver-support-1.4.7-redhatrelease.patch
+Patch2: smeserver-support-1.4.7-redhatrelease.patch2
+Patch3: smeserver-support-1.4.7-blanketcissue.patch
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -91,6 +94,13 @@ Obsoletes: sortspam = 1.1.0-05sme02
 Obsoletes: telnet-server = 0.17-20
 
 %changelog
+* Fri Nov 18 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-16
+- /etc/issue and /etc/issue.net should be empty by default. We don't
+  want to announce version numbers to casual observers [SF: 1261360]
+
+* Fri Nov 18 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-15
+- Use the /etc/motd template for /etc/redhat-release [SF: 1295403]
+
 * Wed Nov 16 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-14
 - Add templates for /etc/{issue,issue.net,motd}, all generated from
   the /etc/motd template [SF: 1261360]
@@ -389,6 +399,12 @@ SME Server module to display support and licensing information
 %prep
 %setup
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
+
+mkdir -p root/etc/e-smith/templates/etc/issue
+touch root/etc/e-smith/templates/etc/issue/template-begin
 
 rm -f root/etc/e-smith/web/common/e-smith-manager.gif
 rm -rf root/etc/e-smith/locale/de

@@ -106,3 +106,8 @@ Wed Nov 16 16:14:45 2005                       Gordon Rowell (gordonr)
 Add templates for /etc/motd, /etc/issue, /etc/issue.net
 
 ----------------------------------------------------------------------
+Fri Nov 18 14:22:09 2005                       Gordon Rowell (gordonr)
+
+Blank templates for /etc/issue{,.net}, 
+Template for /etc/redhat-release
+----------------------------------------------------------------------

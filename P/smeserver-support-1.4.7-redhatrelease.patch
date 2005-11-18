@@ -1,0 +1,10 @@
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.4.7/createlinks mezzanine_patched_smeserver-support-1.4.7/createlinks
+--- smeserver-support-1.4.7/createlinks	2005-11-18 12:39:27.984682360 +1100
++++ mezzanine_patched_smeserver-support-1.4.7/createlinks	2005-11-18 12:38:29.191783218 +1100
+@@ -10,5 +10,5 @@
+ panel_link("support", $panel);
+ 
+ templates2events("/etc/$_", "bootstrap-console-save") 
+-	for (qw(issue issue.net motd));
++	for (qw(issue issue.net motd redhat-release));
+ 

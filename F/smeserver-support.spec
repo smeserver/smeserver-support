@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.7
-%define release 17
+%define release 18
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -13,6 +13,7 @@ Patch0: smeserver-support-1.4.7-motd.patch3
 Patch1: smeserver-support-1.4.7-redhatrelease.patch
 Patch2: smeserver-support-1.4.7-redhatrelease.patch2
 Patch3: smeserver-support-1.4.7-blanketcissue.patch
+Patch4: smeserver-support-1.4.7-events.patch
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -122,6 +123,10 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Fri Nov 18 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-18
+- Expand /etc/motd and friends in post-{install,upgrade} so that
+  they are correct for the first boot [SF: 1295403, 1261360]
+
 * Fri Nov 18 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-17
 - Obsolete the SMEServer marker package [SF: 1356225]
 
@@ -433,6 +438,7 @@ SME Server module to display support and licensing information
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 mkdir -p root/etc/e-smith/templates/etc/issue
 touch root/etc/e-smith/templates/etc/issue/template-begin

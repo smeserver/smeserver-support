@@ -115,3 +115,7 @@ Fri Nov 18 14:33:20 2005                       Gordon Rowell (gordonr)
 
 Obsolete the SMEServer package
 ----------------------------------------------------------------------
+Fri Nov 18 17:50:14 2005                       Gordon Rowell (gordonr)
+
+Expand /etc/motd and friends before the reboot
+----------------------------------------------------------------------

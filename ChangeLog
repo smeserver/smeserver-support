@@ -111,3 +111,7 @@ Fri Nov 18 14:22:09 2005                       Gordon Rowell (gordonr)
 Blank templates for /etc/issue{,.net}, 
 Template for /etc/redhat-release
 ----------------------------------------------------------------------
+Fri Nov 18 14:33:20 2005                       Gordon Rowell (gordonr)
+
+Obsolete the SMEServer package
+----------------------------------------------------------------------

@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.7
-%define release 16
+%define release 17
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -93,7 +93,38 @@ Obsoletes: sortspam = 1.0.0-01
 Obsoletes: sortspam = 1.1.0-05sme02
 Obsoletes: telnet-server = 0.17-20
 
+# This block used to be in the SMEServer RPM. Many are probably 
+# redundant or should be elsewhere or removed
+# [SF: 1356225]
+Obsoletes: SMEServer
+Obsoletes: obtuse-smtpd obtuse-smtpd-qmail
+Obsoletes: ip_masq_h323 ip_masq_icq ip_masq_rtsp isapnptools
+Obsoletes: pidentd
+Obsoletes: tftp-conntrack-nat
+Obsoletes: e-smith-named
+Obsoletes: e-smith-locale-fr_CA
+Obsoletes: pptp-conntrack-nat
+Requires: attr
+Requires: audit
+Requires: dos2unix
+Requires: unix2dos
+Requires: dstat
+Requires: dvd+rw-tools
+Requires: elinks
+Requires: htop
+Requires: mkisofs
+Requires: mtr
+Requires: nano
+Requires: nc
+Requires: mc
+Requires: prelink
+Requires: psacct
+Requires: dmraid
+
 %changelog
+* Fri Nov 18 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-17
+- Obsolete the SMEServer marker package [SF: 1356225]
+
 * Fri Nov 18 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-16
 - /etc/issue and /etc/issue.net should be empty by default. We don't
   want to announce version numbers to casual observers [SF: 1261360]

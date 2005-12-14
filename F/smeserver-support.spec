@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.7
-%define release 18
+%define release 19
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -97,7 +97,6 @@ Obsoletes: telnet-server = 0.17-20
 # This block used to be in the SMEServer RPM. Many are probably 
 # redundant or should be elsewhere or removed
 # [SF: 1356225]
-Obsoletes: SMEServer
 Obsoletes: obtuse-smtpd obtuse-smtpd-qmail
 Obsoletes: ip_masq_h323 ip_masq_icq ip_masq_rtsp isapnptools
 Obsoletes: pidentd
@@ -123,6 +122,9 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Wed Dec 14 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-19
+- Relocate Obsoletes: SMEServer to smeserver-release package [SME: 72]
+
 * Fri Nov 18 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-18
 - Expand /etc/motd and friends in post-{install,upgrade} so that
   they are correct for the first boot [SF: 1295403, 1261360]

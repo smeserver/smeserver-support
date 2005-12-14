@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.7
-%define release 20
+%define release 21
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -34,7 +34,6 @@ Requires: audit-libs
 # New features that we want to pull in on upgrades
 Requires: rkhunter
 Requires: smeserver-yum
-Requires: smeserver-sysstat
 
 # This one should probably be in e-smith-base
 Requires: kernel-module-slip
@@ -123,6 +122,9 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Wed Dec 14 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-21
+- Revert last change [SME: 327]
+
 * Wed Dec 14 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-20
 - Add Requires: smeserver-sysstat [SME: 327]
 

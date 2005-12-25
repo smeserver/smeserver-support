@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.7
-%define release 21
+%define release 22
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -14,6 +14,7 @@ Patch1: smeserver-support-1.4.7-redhatrelease.patch
 Patch2: smeserver-support-1.4.7-redhatrelease.patch2
 Patch3: smeserver-support-1.4.7-blanketcissue.patch
 Patch4: smeserver-support-1.4.7-events.patch
+Patch5: smeserver-support-1.4.7-testInternet.patch 
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -122,6 +123,9 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Sat Dec 25 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-22
+- Move testInternet console menu item to smeserver-support [SME: 364]
+
 * Wed Dec 14 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-21
 - Revert last change [SME: 327]
 
@@ -447,6 +451,7 @@ SME Server module to display support and licensing information
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 mkdir -p root/etc/e-smith/templates/etc/issue
 touch root/etc/e-smith/templates/etc/issue/template-begin

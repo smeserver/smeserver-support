@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.8
-%define release 02
+%define release 03
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -12,6 +12,7 @@ Source: %{name}-%{version}.tar.gz
 Source1: smeserver_logo.gif
 Patch0: smeserver-support-1.4.8-contribslogo.patch2 
 Patch1: smeserver-support-1.4.8-HostnameTitle.patch
+Patch2: smeserver-support-1.4.8-initialcgi.patch
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -120,6 +121,9 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Thu Jan 5 2006 Gordon Rowell <gordonr@gormand.com.au> 1.4.8-03
+- Adjust initial.cgi to "SME Server" product name [SME: 402]
+
 * Thu Jan 5 2006 Gordon Rowell <gordonr@gormand.com.au> 1.4.8-02
 - Add contribs.org logo and change product name to "SME Server" [SME: 402]
 - Put $SystemName.$DomainName in manager titlebar
@@ -132,7 +136,7 @@ Requires: dmraid
 - Modify "Test Internet Access" so that it accesses contribs.org
   and only passes two pieces of information:
   - sysconfig{ReleaseVersion}
-  - An SHA1 hash of sysconfig{SystemID}
+  - An SHA1 hash of sysconfig{SystemID} [SME: 402]
 
 * Sat Dec 25 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-23
 - Add esmith::console object for standalone menu item [SME: 364]
@@ -462,6 +466,7 @@ SME Server module to display support and licensing information
 %setup
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 cp %{_sourcedir}/smeserver_logo.gif root/etc/e-smith/web/common/
 
 mkdir -p root/etc/e-smith/templates/etc/issue

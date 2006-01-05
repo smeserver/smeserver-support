@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.7
-%define release 22
+%define release 24
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -15,6 +15,8 @@ Patch2: smeserver-support-1.4.7-redhatrelease.patch2
 Patch3: smeserver-support-1.4.7-blanketcissue.patch
 Patch4: smeserver-support-1.4.7-events.patch
 Patch5: smeserver-support-1.4.7-testInternet.patch 
+Patch6: smeserver-support-1.4.7-testInternet.patch2
+Patch7: smeserver-support-1.4.7-NewTestInternet.patch
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -123,6 +125,15 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Thu Jan 5 2006 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-24
+- Modify "Test Internet Access" so that it accesses contribs.org
+  and only passes two pieces of information:
+  - sysconfig{ReleaseVersion}
+  - An SHA1 hash of sysconfig{SystemID}
+
+* Sat Dec 25 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-23
+- Add esmith::console object for standalone menu item [SME: 364]
+
 * Sat Dec 25 2005 Gordon Rowell <gordonr@gormand.com.au> 1.4.7-22
 - Move testInternet console menu item to smeserver-support [SME: 364]
 
@@ -452,6 +463,8 @@ SME Server module to display support and licensing information
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
+%patch7 -p1
 
 mkdir -p root/etc/e-smith/templates/etc/issue
 touch root/etc/e-smith/templates/etc/issue/template-begin

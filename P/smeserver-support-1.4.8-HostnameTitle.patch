@@ -1,0 +1,6 @@
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.4.8/root/etc/e-smith/templates/etc/e-smith/web/common/head.tmpl/20Title mezzanine_patched_smeserver-support-1.4.8/root/etc/e-smith/templates/etc/e-smith/web/common/head.tmpl/20Title
+--- smeserver-support-1.4.8/root/etc/e-smith/templates/etc/e-smith/web/common/head.tmpl/20Title	2006-01-05 17:42:32.140715879 +1100
++++ mezzanine_patched_smeserver-support-1.4.8/root/etc/e-smith/templates/etc/e-smith/web/common/head.tmpl/20Title	2006-01-05 17:42:16.167495040 +1100
+@@ -1 +1 @@
+-<title>SME Server { $sysconfig{ReleaseVersion} }</title>
++<title>SME Server { "$SystemName.$DomainName" }</title>

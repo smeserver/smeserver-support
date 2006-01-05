@@ -2,13 +2,16 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.8
-%define release 01
+%define release 02
 Version: %{version}
 Release: %{release}
 License: GPL
 Vendor: SME Server Developers
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
+Source1: smeserver_logo.gif
+Patch0: smeserver-support-1.4.8-contribslogo.patch2 
+Patch1: smeserver-support-1.4.8-HostnameTitle.patch
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -117,6 +120,10 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Thu Jan 5 2006 Gordon Rowell <gordonr@gormand.com.au> 1.4.8-02
+- Add contribs.org logo and change product name to "SME Server" [SME: 402]
+- Put $SystemName.$DomainName in manager titlebar
+
 * Thu Jan 5 2006 Gordon Rowell <gordonr@gormand.com.au> 1.4.8-01
 - Roll patches to 1.4.7-24 and convert some stray DOS format text files
   to Unix format
@@ -453,6 +460,9 @@ SME Server module to display support and licensing information
 
 %prep
 %setup
+%patch0 -p1
+%patch1 -p1
+cp %{_sourcedir}/smeserver_logo.gif root/etc/e-smith/web/common/
 
 mkdir -p root/etc/e-smith/templates/etc/issue
 touch root/etc/e-smith/templates/etc/issue/template-begin

@@ -1,0 +1,27 @@
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.4.8/root/etc/e-smith/templates/etc/e-smith/web/common/foot.tmpl/20ProductName mezzanine_patched_smeserver-support-1.4.8/root/etc/e-smith/templates/etc/e-smith/web/common/foot.tmpl/20ProductName
+--- smeserver-support-1.4.8/root/etc/e-smith/templates/etc/e-smith/web/common/foot.tmpl/20ProductName	2006-01-05 16:58:14.000000000 +1100
++++ mezzanine_patched_smeserver-support-1.4.8/root/etc/e-smith/templates/etc/e-smith/web/common/foot.tmpl/20ProductName	2006-01-05 17:07:16.269853633 +1100
+@@ -1 +1 @@
+-    $OUT .= "Mitel Networks SME Server $releaseVersion<BR>";
++    $OUT .= "SME Server $releaseVersion<BR>";
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.4.8/root/etc/e-smith/templates/etc/e-smith/web/common/head.tmpl/20Title mezzanine_patched_smeserver-support-1.4.8/root/etc/e-smith/templates/etc/e-smith/web/common/head.tmpl/20Title
+--- smeserver-support-1.4.8/root/etc/e-smith/templates/etc/e-smith/web/common/head.tmpl/20Title	2006-01-05 16:58:14.000000000 +1100
++++ mezzanine_patched_smeserver-support-1.4.8/root/etc/e-smith/templates/etc/e-smith/web/common/head.tmpl/20Title	2006-01-05 17:05:07.261299672 +1100
+@@ -1 +1 @@
+-<title>Mitel Networks 6000 | SME Server unsupported developer release</title>
++<title>SME Server { $sysconfig{ReleaseVersion} }</title>
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.4.8/root/etc/e-smith/templates/etc/e-smith/web/panels/manager/html/header.htm/40LogoRow mezzanine_patched_smeserver-support-1.4.8/root/etc/e-smith/templates/etc/e-smith/web/panels/manager/html/header.htm/40LogoRow
+--- smeserver-support-1.4.8/root/etc/e-smith/templates/etc/e-smith/web/panels/manager/html/header.htm/40LogoRow	2006-01-05 16:58:14.000000000 +1100
++++ mezzanine_patched_smeserver-support-1.4.8/root/etc/e-smith/templates/etc/e-smith/web/panels/manager/html/header.htm/40LogoRow	2006-01-05 17:05:48.717086831 +1100
+@@ -1,10 +1,7 @@
+ <table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+   <tr> 
+     <td valign="top">
+-      <img src="/server-common/mitel_logo.gif" width="135" height="40" alt="Mitel Networks">
+-    </td>
+-    <td valign="top" nowrap>
+-      <img src="/server-common/product_logo.jpg" width="300" height="40" alt="6000 : SME Server unsupported developer release">
++	<img src="/server-common/smeserver_logo.gif" height="40" alt="SME Server">
+     </td>
+     <td valign="middle" align="right" width="100%"></td>
+   </tr>

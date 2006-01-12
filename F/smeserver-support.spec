@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.8
-%define release 03
+%define release 04
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -32,6 +32,7 @@ Requires: audit-libs
 
 # New features that we want to pull in on upgrades
 Requires: rkhunter
+Requires: screen
 Requires: smeserver-yum
 
 # This one should probably be in e-smith-base
@@ -121,6 +122,9 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Thu Jan 12 2006 Gordon Rowell <gordonr@gormand.com.au> 1.4.8-04
+- Add screen package [SME: 445]
+
 * Thu Jan 5 2006 Gordon Rowell <gordonr@gormand.com.au> 1.4.8-03
 - Adjust initial.cgi to "SME Server" product name [SME: 402]
 

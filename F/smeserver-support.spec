@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.8
-%define release 04
+%define release 05
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -34,6 +34,9 @@ Requires: audit-libs
 Requires: rkhunter
 Requires: screen
 Requires: smeserver-yum
+Requires: smeserver-qpsmtpd-tnef2mime >= 0.0.2-0sme02
+Requires: smeserver-clamav
+Requires: e-smith-spamassassin
 
 # This one should probably be in e-smith-base
 Requires: kernel-module-slip
@@ -122,6 +125,10 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Mon Jan 30 2006 Charlie Brady <charlie_brady@mitel.com> 1.4.8-05
+- Add dependencies for spamassassin and clamav frameworks (moved
+  from smeserver-qpsmtpd). [SME: 606]
+
 * Thu Jan 12 2006 Gordon Rowell <gordonr@gormand.com.au> 1.4.8-04
 - Add screen package [SME: 445]
 

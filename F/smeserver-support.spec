@@ -96,7 +96,7 @@ Obsoletes: rpm-build = 4.0.4-7x.18
 Obsoletes: sortspam = 1.0.0-01
 Obsoletes: sortspam = 1.1.0-05sme02
 Obsoletes: telnet-server = 0.17-20
-Obsoletes: smeserver-mailsorting
+Obsoletes: e-smith-userpanel
 
 # This block used to be in the SMEServer RPM. Many are probably 
 # redundant or should be elsewhere or removed
@@ -127,7 +127,7 @@ Requires: dmraid
 
 %changelog
 * Wed Feb 01 2006 Charlie Brady <charlie_brady@mitel.com> 1.4.8-06
-- Add header to obsolete smeserver-mailsorting. [SME: 598]
+- Add header to obsolete e-smith-userpanel. [SME: 598]
 
 * Mon Jan 30 2006 Charlie Brady <charlie_brady@mitel.com> 1.4.8-05
 - Add dependencies for spamassassin and clamav frameworks (moved

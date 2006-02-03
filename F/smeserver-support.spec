@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.8
-%define release 06
+%define release 07
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -13,6 +13,7 @@ Source1: smeserver_logo.gif
 Patch0: smeserver-support-1.4.8-contribslogo.patch2 
 Patch1: smeserver-support-1.4.8-HostnameTitle.patch
 Patch2: smeserver-support-1.4.8-initialcgi.patch
+Patch3: smeserver-support-1.4.8-stylinghack.patch
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -126,6 +127,11 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Sat Feb 4 2006 Gordon Rowell <gordonr@gormand.com.au> 1.4.8-07
+- Hack in contribs.org styling for CSS files prior to parameterizing
+  the templates. Kids: Don't do this at home. RPMs should NOT install
+  fragments into templates-custom. [SME: 408]
+
 * Wed Feb 01 2006 Charlie Brady <charlie_brady@mitel.com> 1.4.8-06
 - Add header to obsolete e-smith-userpanel. [SME: 598]
 
@@ -482,6 +488,7 @@ SME Server module to display support and licensing information
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 cp %{_sourcedir}/smeserver_logo.gif root/etc/e-smith/web/common/
 
 mkdir -p root/etc/e-smith/templates/etc/issue

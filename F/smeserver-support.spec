@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.8
-%define release 07
+%define release 08
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -42,6 +42,7 @@ Requires: e-smith-spamassassin
 # This one should probably be in e-smith-base
 Requires: kernel-module-slip
 Requires: kernel-smp-module-slip
+Obsoletes: kernel-module-st
 
 # Specific package versions we dont want.
 # These aren't being pulled by anything else.
@@ -127,6 +128,9 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Sun Feb 5 2006 Gavin Weight <gweight@gmail.com> 1.4.8-08
+- Add header to obsolete kernel-module-st. [SME: 647]
+
 * Sat Feb 4 2006 Gordon Rowell <gordonr@gormand.com.au> 1.4.8-07
 - Hack in contribs.org styling for CSS files prior to parameterizing
   the templates. Kids: Don't do this at home. RPMs should NOT install

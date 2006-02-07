@@ -133,6 +133,9 @@ Requires: dmraid
 - Adding contribs css style fragments and removing hack in
   contribs.org styling [SME: 408]
 
+* Sun Feb 05 2006 Gavin Weight <gweight@gmail.com> 1.4.8-08
+- Add header to obsolete kernel-module-st. [SME: 647]
+
 * Sat Feb 4 2006 Gordon Rowell <gordonr@gormand.com.au> 1.4.8-07
 - Hack in contribs.org styling for CSS files prior to parameterizing
   the templates. Kids: Don't do this at home. RPMs should NOT install

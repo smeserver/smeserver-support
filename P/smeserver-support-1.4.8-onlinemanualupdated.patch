@@ -1,0 +1,33 @@
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.4.8/root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/online-manual mezzanine_patched_smeserver-support-1.4.8/root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/online-manual
+--- smeserver-support-1.4.8/root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/online-manual	2006-02-10 11:16:53.194089540 +1100
++++ mezzanine_patched_smeserver-support-1.4.8/root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/online-manual	2006-02-10 11:15:33.000000000 +1100
+@@ -1,17 +1,23 @@
+ <lexicon lang="en-us">
+       <entry>
+ 	<base>FORM_TITLE</base>
+-	<trans>Online manual</trans>
++	<trans>Online manual and other documentation</trans>
+       </entry>	
+       <entry> 
+ 	<base>DESCRIPTION</base>
+ 	<trans>
+ 	  <![CDATA[
+-	<p>
+-	  The online manual is available at:
+-	<a target="new" href="http://edocs.mitel.com/">
+-	  http://edocs.mitel.com/</a>
+-	</p>
++	<ul>
++	<li><a target="new" href="http://smeserver.sourceforge.net/sme70/Manual?v=6zu">
++	  Online manual</a>
++	<li><a target="new" href="http://smeserver.sourceforge.net/sme70/FAQs?v=1d5g">
++	  FAQs</a>
++	<li><a target="new" href="http://smeserver.sourceforge.net/sme70/KnownIssues?v=2rz">
++	  Known Issues</a>
++	</ul>
++	<H2>Support and licensing</H2>
++	This software is released under the terms listed in the <a href="/server-manager/cgi-bin/support">
++	Support and Licensing</a> page.
+ 	  ]]>
+ 	</trans>
+       </entry>		

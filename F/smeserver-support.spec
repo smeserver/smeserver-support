@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.8
-%define release 13
+%define release 14
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -19,6 +19,7 @@ Patch5: smeserver-support-1.4.8-contribscssstyles.patch2
 Patch6: smeserver-support-1.4.8-contribscssstyles.patch3
 Patch7: smeserver-support-1.4.8-contribscssstyles.patch4
 Patch8: smeserver-support-1.4.8-onlinemanualadded.patch
+Patch9: smeserver-support-1.4.8-onlinemanualupdated.patch
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -133,6 +134,10 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Fri Feb 10 2006 Gavin Weight <gweight@gmail.com> 1.4.8-14
+- Updated online-manual to include links to Sourceforge
+  Manual/FAQs/KnownIssues. [SME: 490]
+
 * Thu Feb 9 2006 Gavin Weight <gweight@gmail.com> 1.4.8-13
 - Added online-manual. [SME: 407]
 
@@ -520,6 +525,7 @@ SME Server module to display support and licensing information
 %patch6 -p1
 %patch7 -p1
 %patch8 -p1
+%patch9 -p1
 cp %{_sourcedir}/smeserver_logo.gif root/etc/e-smith/web/common/
 
 mkdir -p root/etc/e-smith/templates/etc/issue

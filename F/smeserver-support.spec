@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.8
-%define release 14
+%define release 15
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -44,6 +44,8 @@ Requires: smeserver-yum
 Requires: smeserver-qpsmtpd-tnef2mime >= 0.0.2-0sme02
 Requires: smeserver-clamav
 Requires: e-smith-spamassassin
+# e-smith-ibays wasn't a separate package in 5.x
+Requires: e-smith-ibays
 
 # This one should probably be in e-smith-base
 Requires: kernel-module-slip
@@ -134,6 +136,10 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Sun Feb 12 2006 Charlie Brady <charlieb@e-smith.com> 1.4.8-15
+- Adding dependency on e-smith-ibays, to ensure it is installed
+  during 5.x -> 7 upgrade. [SME: 747]
+
 * Fri Feb 10 2006 Gavin Weight <gweight@gmail.com> 1.4.8-14
 - Updated online-manual to include links to Sourceforge
   Manual/FAQs/KnownIssues. [SME: 490]

@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.8
-%define release 16
+%define release 17
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -77,6 +77,7 @@ Obsoletes: php-ldap = 4.3.10-01es01
 Obsoletes: php-mysql = 4.3.10-01es01
 Obsoletes: proftpd = 5:1.2.9-es1
 Obsoletes: proftpd = 5:1.2.9-es3
+Obsoletes: proftpd = 5:1.2.9-es3sme1
 Obsoletes: proftpd = 5:1.2.9-es4
 Obsoletes: squid = 9:2.5.STABLE3-6.3E.2es01
 
@@ -86,10 +87,12 @@ Obsoletes: authconfig = 4.2.8-4
 Obsoletes: bind-utils = 9.2.1-1.7x.2
 Obsoletes: cvs = 1.11.1p1-7es02
 Obsoletes: cvs = 1.11.1p1-16.legacy.2
+Obsoletes: cvs = 1.11.1p1-17.legacy.2
 Obsoletes: dietlibc = 0.15-2
 Obsoletes: e-smith-telnet = 1.6.0-02
 Obsoletes: e-smith-reinstall-floppy <= 1.12.0-01
 Obsoletes: gd = 1.8.4-4
+Obsoletes: gd = 1.8.4-4.1.legacy
 Obsoletes: logwatch = 5.2.2-1sme01
 Obsoletes: mysqlclient9 = 3.23.22-8
 Obsoletes: mysql-devel = 3.23.56-1.73
@@ -108,9 +111,32 @@ Obsoletes: perl-Text-Wrapper = 1.000-10
 Obsoletes: ppp-modules
 Obsoletes: rpm-build = 4.0.4-7x.18
 Obsoletes: sortspam = 1.0.0-01
+Obsoletes: sortspam = 1.1.0-05
+Obsoletes: sortspam = 1.1.0-05sme01
 Obsoletes: sortspam = 1.1.0-05sme02
 Obsoletes: telnet-server = 0.17-20
 Obsoletes: e-smith-userpanel
+
+# More packages which might have been installed via jhb's horde 3 script
+Obsoletes: perl-Unicode-IMAPUtf7 = 1.02-1
+Obsoletes: perl-Unicode-String = 2.06-1
+Obsoletes: file = 4.12-3db_rh73
+Obsoletes: libmcrypt = 2.5.7-1.dag.rh73
+Obsoletes: libmhash = 0.9.1-1.rh73.dag
+Obsoletes: php = 4.3.10-3eo
+Obsoletes: php-curl = 4.3.10-3eo
+Obsoletes: php-devel = 4.3.10-3eo
+Obsoletes: php-domxml = 4.3.10-3eo
+Obsoletes: php-imap = 4.3.10-3eo
+Obsoletes: php-ldap = 4.3.10-3eo
+Obsoletes: php-mcrypt = 4.3.10-3eo
+Obsoletes: php-mhash = 4.3.10-3eo
+Obsoletes: php-mysql = 4.3.10-3eo
+Obsoletes: php-odbc = 4.3.10-3eo
+Obsoletes: php-snmp = 4.3.10-3eo
+Obsoletes: php-xmlrpc = 4.3.10-3eo
+Obsoletes: unixODBC = 2.2.0-5
+Obsoletes: php-eaccelerator = 4.3.10_0.9.2a-1eo
 
 # This block used to be in the SMEServer RPM. Many are probably 
 # redundant or should be elsewhere or removed
@@ -140,6 +166,10 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Mon Feb 13 2006 Charlie Brady <charlieb@e-smith.com> 1.4.8-17
+- Add more Obsoletes headers, to assist with upgrade of customised
+  servers. [SME: 775]
+
 * Mon Feb 13 2006 Charlie Brady <charlieb@e-smith.com> 1.4.8-16
 - Adding dependencies on e-smith-dnscache and e-smith-tinydns, so
   that DNS works after 5.x -> 7 upgrade. [SME: 767]

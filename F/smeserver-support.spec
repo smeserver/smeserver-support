@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.8
-%define release 18
+%define release 19
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -117,6 +117,8 @@ Obsoletes: sortspam = 1.1.0-05sme02
 Obsoletes: telnet-server = 0.17-20
 Obsoletes: e-smith-userpanel
 Conflicts: e-smith-userpanel
+Obsoletes: dmc-mitel-mailrules
+Conflicts: dmc-mitel-mailrules
 
 # More packages which might have been installed via jhb's horde 3 script
 Obsoletes: perl-Unicode-IMAPUtf7 = 1.02-1
@@ -167,6 +169,11 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Wed Feb 15 2006 Charlie Brady <charlie_brady@mitel.com> 1.4.8-19
+- Add Obsoletes and Conflicts headers to cause removal of and
+  prevent re-installation of the incompatible contrib
+  dmc-mitel-mailrules. [SME: 800]
+
 * Tue Feb 14 2006 Charlie Brady <charlie_brady@mitel.com> 1.4.8-18
 - Add Conflicts header to prevent reinstallation of e-smith-userpanel.
   [SME: 598,770]

@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.8
-%define release 19
+%define release 20
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -44,8 +44,12 @@ Requires: smeserver-yum
 Requires: smeserver-qpsmtpd-tnef2mime >= 0.0.2-0sme02
 Requires: smeserver-clamav
 Requires: e-smith-spamassassin
-# e-smith-ibays wasn't a separate package in 5.x
+
+# These packages weren't in 5.x, or were split from e-smith-base since then
 Requires: e-smith-ibays
+Requires: e-smith-domains
+Requires: e-smith-nutUPS
+Requires: e-smith-starterwebsite
 
 # 5.x used bind for name resolution - we need to pull in djbdns
 Requires: e-smith-dnscache
@@ -75,6 +79,8 @@ Obsoletes: php = 4.3.10-01es01
 Obsoletes: php-imap = 4.3.10-01es01
 Obsoletes: php-ldap = 4.3.10-01es01
 Obsoletes: php-mysql = 4.3.10-01es01
+Obsoletes: proftpd = 4:1.2.5-fr1
+Obsoletes: proftpd = 5:1.2.8p-es1
 Obsoletes: proftpd = 5:1.2.9-es1
 Obsoletes: proftpd = 5:1.2.9-es3
 Obsoletes: proftpd = 5:1.2.9-es3sme1
@@ -169,6 +175,11 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Mon Feb 20 2006 Gordon Rowell <gordonr@gormand.com.au> 1.4.8-20
+- Add dependencies on e-smith-domains, e-smith-nutUPS and
+  e-smith-starterwebsite to simplify 5.x upgrades [SME: 767]
+- Obsolete a few more old versions of proftpd with big Epoch tags [SME: 767]
+
 * Wed Feb 15 2006 Charlie Brady <charlie_brady@mitel.com> 1.4.8-19
 - Add Obsoletes and Conflicts headers to cause removal of and
   prevent re-installation of the incompatible contrib

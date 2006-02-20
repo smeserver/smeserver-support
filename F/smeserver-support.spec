@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.8
-%define release 20
+%define release 21
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -46,9 +46,10 @@ Requires: smeserver-clamav
 Requires: e-smith-spamassassin
 
 # These packages weren't in 5.x, or were split from e-smith-base since then
-Requires: e-smith-ibays
 Requires: e-smith-domains
+Requires: e-smith-ibays
 Requires: e-smith-nutUPS
+Requires: e-smith-portforwarding
 Requires: e-smith-starterwebsite
 
 # 5.x used bind for name resolution - we need to pull in djbdns
@@ -175,6 +176,9 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Mon Feb 20 2006 Gordon Rowell <gordonr@gormand.com.au> 1.4.8-21
+- And e-smith-portforwarding [SME: 767]
+
 * Mon Feb 20 2006 Gordon Rowell <gordonr@gormand.com.au> 1.4.8-20
 - Add dependencies on e-smith-domains, e-smith-nutUPS and
   e-smith-starterwebsite to simplify 5.x upgrades [SME: 767]

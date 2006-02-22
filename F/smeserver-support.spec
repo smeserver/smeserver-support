@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.4.8
-%define release 21
+%define release 22
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -151,6 +151,8 @@ Obsoletes: php-eaccelerator = 4.3.10_0.9.2a-1eo
 # This block used to be in the SMEServer RPM. Many are probably 
 # redundant or should be elsewhere or removed
 # [SF: 1356225]
+Conflicts: amavis-ng
+Conflicts: clamav-es
 Obsoletes: obtuse-smtpd obtuse-smtpd-qmail
 Obsoletes: ip_masq_h323 ip_masq_icq ip_masq_rtsp isapnptools
 Obsoletes: pidentd
@@ -158,6 +160,8 @@ Obsoletes: tftp-conntrack-nat
 Obsoletes: e-smith-named
 Obsoletes: e-smith-locale-fr_CA
 Obsoletes: pptp-conntrack-nat
+Obsoletes: amavis-ng
+Obsoletes: clamav-es
 Requires: attr
 Requires: audit
 Requires: dos2unix
@@ -176,6 +180,9 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Wed Feb 22 2006 Gavin Weight <gweight@gmail.com> 1.4.8-22
+- Add obsoletes on amavis-ng and clamav-es, Added conflicts too [SME: 775]
+
 * Mon Feb 20 2006 Gordon Rowell <gordonr@gormand.com.au> 1.4.8-21
 - And e-smith-portforwarding [SME: 767]
 

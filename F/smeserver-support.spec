@@ -1,25 +1,14 @@
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
-%define version 1.4.8
-%define release 22
+%define version 1.6.0
+%define release 01
 Version: %{version}
 Release: %{release}
 License: GPL
 Vendor: SME Server Developers
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
-Source1: smeserver_logo.gif
-Patch0: smeserver-support-1.4.8-contribslogo.patch2 
-Patch1: smeserver-support-1.4.8-HostnameTitle.patch
-Patch2: smeserver-support-1.4.8-initialcgi.patch
-Patch3: smeserver-support-1.4.8-stylinghack.patch
-Patch4: smeserver-support-1.4.8-contribscssstyles.patch
-Patch5: smeserver-support-1.4.8-contribscssstyles.patch2
-Patch6: smeserver-support-1.4.8-contribscssstyles.patch3
-Patch7: smeserver-support-1.4.8-contribscssstyles.patch4
-Patch8: smeserver-support-1.4.8-onlinemanualadded.patch
-Patch9: smeserver-support-1.4.8-onlinemanualupdated.patch
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -180,6 +169,9 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Thu Mar 16 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-01
+- Roll stable stream version. [SME: 1016]
+
 * Wed Feb 22 2006 Gavin Weight <gweight@gmail.com> 1.4.8-22
 - Add obsoletes on amavis-ng and clamav-es, Added conflicts too [SME: 775]
 
@@ -594,17 +586,6 @@ SME Server module to display support and licensing information
 
 %prep
 %setup
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
-%patch7 -p1
-%patch8 -p1
-%patch9 -p1
-cp %{_sourcedir}/smeserver_logo.gif root/etc/e-smith/web/common/
 
 mkdir -p root/etc/e-smith/templates/etc/issue
 touch root/etc/e-smith/templates/etc/issue/template-begin

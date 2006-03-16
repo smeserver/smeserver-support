@@ -1,5 +1,0 @@
-diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.4.7/root/etc/e-smith/templates.metadata/etc/redhat-release mezzanine_patched_smeserver-support-1.4.7/root/etc/e-smith/templates.metadata/etc/redhat-release
---- smeserver-support-1.4.7/root/etc/e-smith/templates.metadata/etc/redhat-release	1970-01-01 10:00:00.000000000 +1000
-+++ mezzanine_patched_smeserver-support-1.4.7/root/etc/e-smith/templates.metadata/etc/redhat-release	2005-11-18 12:42:13.017022176 +1100
-@@ -0,0 +1 @@
-+TEMPLATE_PATH="/etc/motd"

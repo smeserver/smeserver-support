@@ -1,0 +1,9 @@
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.6.0/root/etc/e-smith/templates/etc/motd/template-begin mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/templates/etc/motd/template-begin
+--- smeserver-support-1.6.0/root/etc/e-smith/templates/etc/motd/template-begin	2006-01-05 16:58:14.000000000 +1100
++++ mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/templates/etc/motd/template-begin	2006-03-28 16:19:10.371785861 +1000
+@@ -1,4 +1,4 @@
+ {
+-    $OUT = "CentOS release 4.2 (Final)";
++    $OUT = "CentOS release 4.3 (Final)";
+     $OUT .= " - SME Server " . $sysconfig{ReleaseVersion};
+ }

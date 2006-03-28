@@ -2,13 +2,14 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 01
+%define release 03
 Version: %{version}
 Release: %{release}
 License: GPL
 Vendor: SME Server Developers
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
+Patch0: smeserver-support-1.6.0-centosrelease.patch
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -52,6 +53,7 @@ Obsoletes: kernel-module-st
 
 # Specific package versions we dont want.
 # These aren't being pulled by anything else.
+Obsoletes: e-smith-loginscript = 0.2-2
 Obsoletes: e-smith-samba = 2.1.0-10gjz
 Requires: e-smith-samba
 
@@ -169,6 +171,12 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Tue Mar 28 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-03
+- Bump CentOS release to 4.3 [SME: 1151]
+
+* Tue Mar 28 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-02
+- Add Obsoletes for e-smith-loginscript-0.2-2 [SME: 1087]
+
 * Thu Mar 16 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-01
 - Roll stable stream version. [SME: 1016]
 
@@ -586,6 +594,7 @@ SME Server module to display support and licensing information
 
 %prep
 %setup
+%patch0 -p1
 
 mkdir -p root/etc/e-smith/templates/etc/issue
 touch root/etc/e-smith/templates/etc/issue/template-begin

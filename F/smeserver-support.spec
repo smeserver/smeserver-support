@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 03
+%define release 04
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -34,6 +34,7 @@ Requires: smeserver-yum
 Requires: smeserver-qpsmtpd-tnef2mime >= 0.0.2-0sme02
 Requires: smeserver-clamav
 Requires: e-smith-spamassassin
+Requires: smeserver-audittools
 
 # These packages weren't in 5.x, or were split from e-smith-base since then
 Requires: e-smith-domains
@@ -171,6 +172,9 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Wed Apr 5 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-04
+- Add dependency on smeserver-audittools [SME: 762]
+
 * Tue Mar 28 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-03
 - Bump CentOS release to 4.3 [SME: 1151]
 

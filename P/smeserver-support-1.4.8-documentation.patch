@@ -1,0 +1,18 @@
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.6.0/root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/online-manual mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/online-manual
+--- smeserver-support-1.6.0/root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/online-manual	2006-03-16 18:25:05.000000000 +1100
++++ mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/online-manual	2006-04-07 03:53:10.985852356 +1000
+@@ -8,12 +8,10 @@
+ 	<trans>
+ 	  <![CDATA[
+ 	<ul>
+-	<li><a target="new" href="http://smeserver.sourceforge.net/sme70/Manual?v=6zu">
++	<li><a target="new" href="http://contribs.org/documentation/manual/">
+ 	  Online manual</a>
+-	<li><a target="new" href="http://smeserver.sourceforge.net/sme70/FAQs?v=1d5g">
++	<li><a target="new" href="http://contribs.org/documentation/FAQ/">
+ 	  FAQs</a>
+-	<li><a target="new" href="http://smeserver.sourceforge.net/sme70/KnownIssues?v=2rz">
+-	  Known Issues</a>
+ 	</ul>
+ 	<H2>Support and licensing</H2>
+ 	This software is released under the terms listed in the <a href="/server-manager/cgi-bin/support">

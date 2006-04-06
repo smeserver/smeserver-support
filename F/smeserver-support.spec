@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 04
+%define release 05
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -10,6 +10,7 @@ Vendor: SME Server Developers
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 Patch0: smeserver-support-1.6.0-centosrelease.patch
+Patch1: smeserver-support-1.6.0-onlinemanuallocation.patch
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -172,6 +173,9 @@ Requires: psacct
 Requires: dmraid
 
 %changelog
+* Thu Apr 6 2006 Gavin Weight <gweight@gmail.com> 1.6.0-05
+- Changed links to online-manual now at contribs.org . [SME: 1079]
+
 * Wed Apr 5 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-04
 - Add dependency on smeserver-audittools [SME: 762]
 
@@ -599,6 +603,7 @@ SME Server module to display support and licensing information
 %prep
 %setup
 %patch0 -p1
+%patch1 -p1
 
 mkdir -p root/etc/e-smith/templates/etc/issue
 touch root/etc/e-smith/templates/etc/issue/template-begin

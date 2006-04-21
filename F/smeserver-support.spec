@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 05
+%define release 06
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -172,7 +172,18 @@ Requires: prelink
 Requires: psacct
 Requires: dmraid
 
+# Dungog contribs which Stephen Noble reports as incompatible with
+# SME7
+Obsoletes: dungog-vdomain
+Obsoletes: smeserver-vdomain
+Conflicts: dungog-vdomain
+Conflicts: smeserver-vdomain
+
 %changelog
+* Wed Apr 19 2006 Charlie Brady <charlie_brady@mitel.com> 1.6.0-06
+- Add Obsoletes and Conflicts headers for dungog vdomain contribs.
+  [SME: 1283]
+
 * Thu Apr 6 2006 Gavin Weight <gweight@gmail.com> 1.6.0-05
 - Changed links to online-manual now at contribs.org . [SME: 1079]
 

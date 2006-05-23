@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 06
+%define release 08
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -11,6 +11,8 @@ Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 Patch0: smeserver-support-1.6.0-centosrelease.patch
 Patch1: smeserver-support-1.6.0-onlinemanuallocation.patch
+Patch2: smeserver-support-1.6.0-statusreport.patch
+Patch3: smeserver-support-1.6.0-statusreport.patch2
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -119,6 +121,11 @@ Obsoletes: e-smith-userpanel
 Conflicts: e-smith-userpanel
 Obsoletes: dmc-mitel-mailrules
 Conflicts: dmc-mitel-mailrules
+# [SME 1283}
+Obsoletes: dungog-vdomain
+Conflicts: dungog-vdomain
+Obsoletes: smeserver-vdomain
+Conflicts: smeserver-vdomain
 
 # More packages which might have been installed via jhb's horde 3 script
 Obsoletes: perl-Unicode-IMAPUtf7 = 1.02-1
@@ -180,6 +187,20 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Thu May 23 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-08
+- Don't bother printing LWP error [SME: 1314]
+
+* Thu May 23 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-07
+- Add weekly status report. 
+- Only the following information is passed in the status report:
+  - ReleaseVersion (e.g. 7.0rc2)
+  - SystemMode     (e.g. servergateway)
+  - SystemIDHash   (Unique id - SHA1 hash of the SystemID)
+  - InstallEpoch   (time of system install)
+  - CurrentEpoch   (time of this test)
+- Refactor testInternet to use new script
+- [SME: 1314]
+
 * Wed Apr 19 2006 Charlie Brady <charlie_brady@mitel.com> 1.6.0-06
 - Add Obsoletes and Conflicts headers for dungog vdomain contribs.
   [SME: 1283]
@@ -615,6 +636,8 @@ SME Server module to display support and licensing information
 %setup
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 mkdir -p root/etc/e-smith/templates/etc/issue
 touch root/etc/e-smith/templates/etc/issue/template-begin

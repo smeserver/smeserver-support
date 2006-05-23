@@ -1,0 +1,21 @@
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.6.0/root/sbin/e-smith/statusreport mezzanine_patched_smeserver-support-1.6.0/root/sbin/e-smith/statusreport
+--- smeserver-support-1.6.0/root/sbin/e-smith/statusreport	2006-05-23 17:25:33.063219501 +1000
++++ mezzanine_patched_smeserver-support-1.6.0/root/sbin/e-smith/statusreport	2006-05-23 17:24:10.842389632 +1000
+@@ -60,15 +60,6 @@
+         $response = $ua->get($url);
+     };
+ 
+-if ($response->is_success)
+-{
+-    exit 0;
+-}
+-else
+-{
+-    warn gettext("Response to Internet test was"), ": ",
+-        $response->message,
+-        "\n";
++exit 0 if ($response->is_success);
+ 
+-    exit 1;
+-}
++exit 1;

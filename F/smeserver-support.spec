@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 08
+%define release 09
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -71,6 +71,7 @@ Requires: smeserver-locale-it
 Obsoletes: perl-gettext = 1.01-10
 Obsoletes: perl-perl-ldap = 0.22-10
 Obsoletes: perl-perl-ldap = 0.31-1
+Obsoletes: perl-File-MMagic = 1.22-1
 Obsoletes: php = 4.3.10-01es01
 Obsoletes: php-imap = 4.3.10-01es01
 Obsoletes: php-ldap = 4.3.10-01es01
@@ -187,6 +188,9 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Tue May 23 2006 Gavin Weight <gweight@gmail.com> 1.6.0-09
+- Add Obsoletes for perl-File-MMagic. [SME: 1436]
+
 * Thu May 23 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-08
 - Don't bother printing LWP error [SME: 1314]
 

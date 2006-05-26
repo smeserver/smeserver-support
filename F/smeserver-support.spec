@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 09
+%define release 10
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -13,6 +13,7 @@ Patch0: smeserver-support-1.6.0-centosrelease.patch
 Patch1: smeserver-support-1.6.0-onlinemanuallocation.patch
 Patch2: smeserver-support-1.6.0-statusreport.patch
 Patch3: smeserver-support-1.6.0-statusreport.patch2
+Patch4: smeserver-support-1.6.0-statusreport.sleep.patch 
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -188,6 +189,9 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Fri May 26 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-10
+- Sleep 0..59 seconds when calling statusreport from cron [SME: 1497]
+
 * Tue May 23 2006 Gavin Weight <gweight@gmail.com> 1.6.0-09
 - Add Obsoletes for perl-File-MMagic. [SME: 1436]
 
@@ -642,6 +646,7 @@ SME Server module to display support and licensing information
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 mkdir -p root/etc/e-smith/templates/etc/issue
 touch root/etc/e-smith/templates/etc/issue/template-begin

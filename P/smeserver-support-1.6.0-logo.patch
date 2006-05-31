@@ -1,0 +1,12 @@
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.6.0/root/etc/e-smith/templates/etc/e-smith/web/panels/manager/html/header.htm/40LogoRow mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/templates/etc/e-smith/web/panels/manager/html/header.htm/40LogoRow
+--- smeserver-support-1.6.0/root/etc/e-smith/templates/etc/e-smith/web/panels/manager/html/header.htm/40LogoRow	2006-03-16 18:25:05.000000000 +1100
++++ mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/templates/etc/e-smith/web/panels/manager/html/header.htm/40LogoRow	2006-05-31 14:19:17.513821088 +1000
+@@ -1,7 +1,7 @@
+ <table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+   <tr> 
+     <td valign="top">
+-	<img src="/server-common/smeserver_logo.gif" height="40" alt="SME Server">
++	<img src="/server-common/smeserver_logo.jpg" height="40" alt="SME Server">
+     </td>
+     <td valign="middle" align="right" width="100%"></td>
+   </tr>

@@ -2,18 +2,20 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 10
+%define release 11
 Version: %{version}
 Release: %{release}
 License: GPL
 Vendor: SME Server Developers
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
+Source1: smeserver_logo.jpg
 Patch0: smeserver-support-1.6.0-centosrelease.patch
 Patch1: smeserver-support-1.6.0-onlinemanuallocation.patch
 Patch2: smeserver-support-1.6.0-statusreport.patch
 Patch3: smeserver-support-1.6.0-statusreport.patch2
 Patch4: smeserver-support-1.6.0-statusreport.sleep.patch 
+Patch5: smeserver-support-1.6.0-logo.patch 
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -189,6 +191,9 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Wed May 31 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-11
+- Updated SME Server logo [SME: 1512]
+
 * Fri May 26 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-10
 - Sleep 0..59 seconds when calling statusreport from cron [SME: 1497]
 
@@ -658,6 +663,10 @@ rm -rf root/etc/e-smith/locale/es
 rm -rf root/etc/e-smith/locale/it
 rm -rf root/etc/e-smith/licenses/fr
 rm -rf root/etc/e-smith/licenses/fr_CA
+
+%patch5 -p1
+rm -f root/etc/e-smith/web/common/smeserver_logo.gif
+cp %{SOURCE1} root/etc/e-smith/web/common
 
 %build
 perl createlinks

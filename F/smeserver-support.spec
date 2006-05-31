@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 11
+%define release 12
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -37,6 +37,7 @@ Requires: audit-libs
 Requires: rkhunter
 Requires: screen
 Requires: smeserver-yum
+Obsoletes: yum = 1.0.3-6.0.7.x.esmith
 Requires: smeserver-qpsmtpd-tnef2mime >= 0.0.2-0sme02
 Requires: smeserver-clamav
 Requires: e-smith-spamassassin
@@ -191,6 +192,9 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Wed May 31 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-12
+- Obsolete yum-1.0.3-6.0.7.x.esmith [SME: 1418]
+
 * Wed May 31 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-11
 - Updated SME Server logo [SME: 1512]
 

@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 12
+%define release 13
 Version: %{version}
 Release: %{release}
 License: GPL

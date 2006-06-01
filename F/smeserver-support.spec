@@ -14,8 +14,9 @@ Patch0: smeserver-support-1.6.0-centosrelease.patch
 Patch1: smeserver-support-1.6.0-onlinemanuallocation.patch
 Patch2: smeserver-support-1.6.0-statusreport.patch
 Patch3: smeserver-support-1.6.0-statusreport.patch2
-Patch4: smeserver-support-1.6.0-statusreport.sleep.patch 
+Patch4: smeserver-support-1.6.0-statusreport.sleep.patch
 Patch5: smeserver-support-1.6.0-logo.patch 
+Patch6: smeserver-support-1.6.0-statusreport.sleep.patch2
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -192,6 +193,10 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Wed May 31 2006 Charlie Brady <charlie_brady@mitel.com> 1.6.0-13
+- Escape percent char in crontab template. [SME: 1497]
+- Apply logo patch (missed from -11) [SME: 1512]
+
 * Wed May 31 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-12
 - Obsolete yum-1.0.3-6.0.7.x.esmith [SME: 1418]
 
@@ -656,6 +661,8 @@ SME Server module to display support and licensing information
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
+%patch6 -p1
 
 mkdir -p root/etc/e-smith/templates/etc/issue
 touch root/etc/e-smith/templates/etc/issue/template-begin

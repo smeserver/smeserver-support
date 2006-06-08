@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 13
+%define release 14
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -193,6 +193,9 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Thu Jun 8 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-14
+- Update server-manager logo [SME: 1558]
+
 * Wed May 31 2006 Charlie Brady <charlie_brady@mitel.com> 1.6.0-13
 - Escape percent char in crontab template. [SME: 1497]
 

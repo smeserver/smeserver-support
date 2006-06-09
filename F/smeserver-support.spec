@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 14
+%define release 15
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -10,6 +10,7 @@ Vendor: SME Server Developers
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 Source1: smeserver_logo.jpg
+Source2: smeserver_logo.gif
 Patch0: smeserver-support-1.6.0-centosrelease.patch
 Patch1: smeserver-support-1.6.0-onlinemanuallocation.patch
 Patch2: smeserver-support-1.6.0-statusreport.patch
@@ -193,6 +194,9 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Fri Jun 9 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-15
+- Add GIF format logo [SME: 1558]
+
 * Thu Jun 8 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-14
 - Update server-manager logo [SME: 1558]
 
@@ -679,6 +683,7 @@ rm -rf root/etc/e-smith/licenses/fr_CA
 %patch5 -p1
 rm -f root/etc/e-smith/web/common/smeserver_logo.gif
 cp %{SOURCE1} root/etc/e-smith/web/common
+cp %{SOURCE2} root/etc/e-smith/web/common
 
 %build
 perl createlinks

@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 16
+%define release 17
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -19,6 +19,7 @@ Patch4: smeserver-support-1.6.0-statusreport.sleep.patch
 Patch5: smeserver-support-1.6.0-logo.patch 
 Patch6: smeserver-support-1.6.0-statusreport.sleep.patch2
 Patch7: smeserver-support-1.6.0-initialtext.patch
+Patch8: smeserver-support-1.6.0-initialtext.patch2
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -195,6 +196,9 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Thu Jun 29 2006 Gavin Weight <gweight@gmail.com> 1.6.0-17
+- Modified text on server-manager front screen. [SME: 1613]
+
 * Wed Jun 28 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-16
 - Expand text on server-manager front screen [SME: 1613]
 - Add Copyright 2006 SME Server, Inc to footer
@@ -691,6 +695,7 @@ cp %{SOURCE1} root/etc/e-smith/web/common
 cp %{SOURCE2} root/etc/e-smith/web/common
 
 %patch7 -p1
+%patch8 -p1
 
 %build
 perl createlinks

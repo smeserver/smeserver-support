@@ -15,7 +15,7 @@ diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.6.0/root/etc/e-smith/locale
          <p>
          <b>
 -        Please visit <A HREF="http://www.smeserver.org" TARGET="_blank">www.smeserver.org</A>
-+        Please visit <A HREF="http://www.smeserver.org/donate/" TARGET="_blank">www.smeserver.org</A>
++        Please visit <A HREF="http://www.smeserver.org/donate/" TARGET="_blank">http://www.smeserver.org/donate/</A>
          to donate.
          </b></P>
  

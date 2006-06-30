@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 18
+%define release 19
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -21,6 +21,7 @@ Patch6: smeserver-support-1.6.0-statusreport.sleep.patch2
 Patch7: smeserver-support-1.6.0-initialtext.patch
 Patch8: smeserver-support-1.6.0-initialtext.patch2
 Patch9: smeserver-support-1.6.0-initialtext.patch3
+Patch10: smeserver-support-1.6.0-initialtext.patch4
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -197,6 +198,9 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Fri Jun 30 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-19
+- Change donate link to www.smeserver.org/donate/ [SME: 1668]
+
 * Fri Jun 30 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-18
 - Change new window target to _blank rather than "new" [SME: 1613]
 
@@ -701,6 +705,7 @@ cp %{SOURCE2} root/etc/e-smith/web/common
 %patch7 -p1
 %patch8 -p1
 %patch9 -p1
+%patch10 -p1
 
 %build
 perl createlinks

@@ -2,7 +2,13 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 20
+%define release 21
+
+# These packages come from CentOS, but wee need to use care when 
+# updating them - either we've patched them, or we need to do something
+# prior to taking the update
+%define centos_exclude kernel,kernel-smp,mkinitrd,mdadm,initscripts
+
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -199,6 +205,10 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Fri Sep 8 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-21
+- Add centos_exclude define and use it to auto-generate Exclude 
+  property for CentOS yum repositories [SME: 1849]
+
 * Sun Jul 16 2006 Gavin Weight <gweight@gmail.com> 1.6.0-20
 - Changed css style to match logo background. [SME: 1558]
 
@@ -716,6 +726,13 @@ cp %{SOURCE2} root/etc/e-smith/web/common
 perl createlinks
 
 ln -s initial.cgi root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/index.cgi
+
+YUM_REPOS=root/etc/e-smith/db/yum_repositories/
+for dir in base updates
+do
+    mkdir -p $YUM_REPOS/$dir/force
+    echo %{centos_excludes} > $YUM_REPOS/$dir/force/Exclude
+done
 
 %install
 rm -rf $RPM_BUILD_ROOT

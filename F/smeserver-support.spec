@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 22
+%define release 23
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -77,9 +77,6 @@ Obsoletes: kernel-module-st
 Obsoletes: e-smith-loginscript = 0.2-2
 Obsoletes: e-smith-samba = 2.1.0-10gjz
 Requires: e-smith-samba
-Obsoletes: samba-common = 3.0.23c-1
-Obsoletes: samba-client = 3.0.23c-1
-Obsoletes: samba = 3.0.23c-1
 
 # Pull in locales so we have a smooth language upgrade [SF: 1309520]
 Requires: smeserver-locale-de
@@ -208,6 +205,9 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Tue Nov 14 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-23
+- Revert last change - the packages can be removed manually [SME: 2062]
+
 * Tue Nov 14 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-22
 - Obsolete samba-3.0.23c-1 and friends [SME: 2062]
 

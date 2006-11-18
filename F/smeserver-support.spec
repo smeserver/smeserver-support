@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 23
+%define release 24
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -29,6 +29,7 @@ Patch8: smeserver-support-1.6.0-initialtext.patch2
 Patch9: smeserver-support-1.6.0-initialtext.patch3
 Patch10: smeserver-support-1.6.0-initialtext.patch4
 Patch11: smeserver-support-1.6.0-cssStyling.patch
+Patch12: smeserver-support-1.6.0-redhat-release.patch
 Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
@@ -205,6 +206,10 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Sat Nov 18 2006 Shad L. Lords <slords@mail.com> 1.6.0-24
+- Remove CentOS markings from motd, redhat-release to fix
+  branding of kernels in grub.conf and startup screens [SME: 1996]
+
 * Tue Nov 14 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-23
 - Revert last change - the packages can be removed manually [SME: 2062]
 
@@ -727,6 +732,7 @@ cp %{SOURCE2} root/etc/e-smith/web/common
 %patch9 -p1
 %patch10 -p1
 %patch11 -p1
+%patch12 -p1
 
 %build
 perl createlinks

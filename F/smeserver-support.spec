@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 24
+%define release 25
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -52,7 +52,6 @@ Requires: rkhunter
 Requires: screen
 Requires: smeserver-yum
 Obsoletes: yum = 1.0.3-6.0.7.x.esmith
-Requires: smeserver-qpsmtpd-tnef2mime >= 0.0.2-0sme02
 Requires: smeserver-clamav
 Requires: e-smith-spamassassin
 Requires: smeserver-audittools
@@ -206,6 +205,9 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Wed Nov 22 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-25
+- Remove requires for smeserver-qpsmtpds-tnef2mime after merge [SME: 2087]
+
 * Sat Nov 18 2006 Shad L. Lords <slords@mail.com> 1.6.0-24
 - Remove CentOS markings from motd, redhat-release to fix
   branding of kernels in grub.conf and startup screens [SME: 1996]

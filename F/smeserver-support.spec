@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 25
+%define release 26
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -68,8 +68,10 @@ Requires: e-smith-dnscache
 Requires: e-smith-tinydns
 
 # This one should probably be in e-smith-base
-Requires: kernel-module-slip
-Requires: kernel-smp-module-slip
+Requires: kmod-slip
+Requires: kmod-slip-smp
+Obsoletes: kernel-module-slip
+Obsoletes: kernel-smp-module-slip
 Obsoletes: kernel-module-st
 
 # Specific package versions we dont want.
@@ -205,6 +207,9 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Sat Dec 02 2006 Shad L. Lords <slords@mail.com> 1.6.0-26
+- Update requires to reflect new kernel module format
+
 * Wed Nov 22 2006 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-25
 - Remove requires for smeserver-qpsmtpds-tnef2mime after merge [SME: 2087]
 

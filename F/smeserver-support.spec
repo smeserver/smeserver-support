@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 26
+%define release 27
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -87,10 +87,11 @@ Requires: smeserver-locale-fr
 Requires: smeserver-locale-it
 
 # These should be re-pulled by other e-smith packages.
+Obsoletes: ntp = 4.2.0.a.20040617-4sme01
+Obsoletes: perl-File-MMagic = 1.22-1
 Obsoletes: perl-gettext = 1.01-10
 Obsoletes: perl-perl-ldap = 0.22-10
 Obsoletes: perl-perl-ldap = 0.31-1
-Obsoletes: perl-File-MMagic = 1.22-1
 Obsoletes: php = 4.3.10-01es01
 Obsoletes: php-imap = 4.3.10-01es01
 Obsoletes: php-ldap = 4.3.10-01es01
@@ -207,6 +208,9 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Sat Dec 02 2006 Shad L. Lords <slords@mail.com> 1.6.0-27
+- Obsolete our version of ntp so we pull correct upstream version
+
 * Sat Dec 02 2006 Shad L. Lords <slords@mail.com> 1.6.0-26
 - Update requires to reflect new kernel module format
 

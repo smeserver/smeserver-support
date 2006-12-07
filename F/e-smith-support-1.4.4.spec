@@ -3,16 +3,16 @@ Summary: e-smith module to display support and licensing information
 %define language fr_CA
 Name: %{name}
 %define version 1.4.4
-%define release 07sme02
+%define release 8
 Version: %{version}
-Release: %{release}
+Release: %smerelease %{release}
+Packager: %{_packager}
 License: GPL
 Vendor: Mitel Networks Corporation
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 Patch0: e-smith-support-1.4.4-02.mitel_patch
 Patch1: e-smith-support-1.4.4-04.mitel_patch
-Packager: e-smith developers <bugs@e-smith.com>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
 BuildArchitectures: noarch
@@ -176,6 +176,10 @@ Requires: xmlsec1-openssl
 # END: Section needed for upgrades
 
 %changelog
+* Thu Dec 07 2006 Shad L. Lords <slords@mail.com>
+- Update to new release naming.  No functional changes.
+- Make Packager generic
+
 * Fri Jul 15 2005 Shad L. Lords <slords@mail.com>
 - [1.4.4-07sme02]
 - Various additional fixes for upgrades

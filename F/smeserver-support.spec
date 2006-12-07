@@ -10,7 +10,8 @@ Name: %{name}
 %define centos_exclude kernel,kernel-smp,mkinitrd,mdadm,initscripts
 
 Version: %{version}
-Release: %{release}
+Release: %smerelease %{release}
+Packager: %{_packager}
 License: GPL
 Vendor: SME Server Developers
 Group: Networking/Daemons
@@ -30,7 +31,6 @@ Patch9: smeserver-support-1.6.0-initialtext.patch3
 Patch10: smeserver-support-1.6.0-initialtext.patch4
 Patch11: smeserver-support-1.6.0-cssStyling.patch
 Patch12: smeserver-support-1.6.0-redhat-release.patch
-Packager: Gordon Rowell <gordonr@gormand.com.au>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
 BuildArchitectures: noarch
@@ -208,6 +208,10 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Thu Dec 07 2006 Shad L. Lords <slords@mail.com>
+- Update to new release naming.  No functional changes.
+- Make Packager generic
+
 * Sat Dec 02 2006 Shad L. Lords <slords@mail.com> 1.6.0-27
 - Obsolete our version of ntp so we pull correct upstream version
 

@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 28
+%define release 29
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -79,6 +79,7 @@ Obsoletes: kernel-module-st
 Obsoletes: e-smith-loginscript = 0.2-2
 Obsoletes: e-smith-samba = 2.1.0-10gjz
 Requires: e-smith-samba
+Requires: check4updates
 
 # Pull in locales so we have a smooth language upgrade [SF: 1309520]
 Requires: smeserver-locale-de
@@ -207,7 +208,10 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
-* Tue Dec 12 2006 Shad L. Lords <slords@mail.com>
+* Fri Jan 05 2007 Shad L. Lords <slords@mail.com> 1.6.0-29
+- Add requires for check4updates.  It was split from atrpms.
+
+* Tue Dec 12 2006 Shad L. Lords <slords@mail.com> 1.6.0-28
 - Undo ntp obsoletes.  Breaks yum upgrades.
 
 * Thu Dec 07 2006 Shad L. Lords <slords@mail.com>

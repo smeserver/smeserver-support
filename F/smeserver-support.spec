@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 30
+%define release 31
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -208,6 +208,9 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Sat Jan 27 2007 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-31
+- Change base and updates Exclude definitions to defaults files [SME: 2384]
+
 * Sat Jan 27 2007 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-30
 - Fix generation of base and updates Exclude definitions [SME: 2384]
 
@@ -766,8 +769,8 @@ ln -s initial.cgi root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/index.
 YUM_REPOS=root/etc/e-smith/db/yum_repositories/
 for dir in base updates
 do
-    mkdir -p $YUM_REPOS/force/$dir
-    echo %{centos_excludes} > $YUM_REPOS/force/$dir/Exclude
+    mkdir -p $YUM_REPOS/defaults/$dir
+    echo %{centos_excludes} > $YUM_REPOS/defaults/$dir/Exclude
 done
 
 %install

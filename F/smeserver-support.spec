@@ -2,12 +2,12 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 29
+%define release 30
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
 # prior to taking the update
-%define centos_exclude kernel,kernel-smp,mkinitrd,mdadm,initscripts
+%define centos_excludes kernel,kernel-smp,mkinitrd,mdadm,initscripts
 
 Version: %{version}
 Release: %smerelease %{release}
@@ -208,6 +208,9 @@ Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 
 %changelog
+* Sat Jan 27 2007 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-30
+- Fix generation of base and updates Exclude definitions [SME: 2384]
+
 * Fri Jan 05 2007 Shad L. Lords <slords@mail.com> 1.6.0-29
 - Add requires for check4updates.  It was split from atrpms.
 
@@ -763,8 +766,8 @@ ln -s initial.cgi root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/index.
 YUM_REPOS=root/etc/e-smith/db/yum_repositories/
 for dir in base updates
 do
-    mkdir -p $YUM_REPOS/$dir/force
-    echo %{centos_excludes} > $YUM_REPOS/$dir/force/Exclude
+    mkdir -p $YUM_REPOS/force/$dir
+    echo %{centos_excludes} > $YUM_REPOS/force/$dir/Exclude
 done
 
 %install

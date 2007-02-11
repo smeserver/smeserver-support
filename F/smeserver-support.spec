@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 31
+%define release 32
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -206,8 +206,12 @@ Obsoletes: dungog-vdomain
 Obsoletes: smeserver-vdomain
 Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
+Obsoletes: smeserver-userpanel <= 0.9-9
 
 %changelog
+* Mon Feb 12 2007 Stephen Noble <support@dungog.net> 1.6.0-32
+- Add Obsoletes header to remove smeserver-userpanel <=0.9-9 [SME: 2427]
+
 * Sat Jan 27 2007 Gordon Rowell <gordonr@gormand.com.au> 1.6.0-31
 - Change base and updates Exclude definitions to defaults files [SME: 2384]
 

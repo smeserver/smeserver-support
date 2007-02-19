@@ -211,10 +211,10 @@ Conflicts: smeserver-vdomain
 Obsoletes: smeserver-userpanel <= 0.9-9
 
 %changelog
-* Sun Feb 18 2007 Stephen Noble <support@dungog.net> 1.6.0-34
+* Sun Feb 18 2007 Shad L. Lords <slords@mail.com> 1.6.0-34
 - Add sv locale so language files get pulled in [SME: 911]
 
-* Sun Feb 18 2007 Stephen Noble <support@dungog.net> 1.6.0-33
+* Sun Feb 18 2007 Shad L. Lords <slords@mail.com> 1.6.0-33
 - Add ipp2p package (disabled) to block p2p traffic [SME: 38]
 
 * Mon Feb 12 2007 Stephen Noble <support@dungog.net> 1.6.0-32

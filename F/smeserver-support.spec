@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 32
+%define release 33
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -86,6 +86,7 @@ Requires: smeserver-locale-de
 Requires: smeserver-locale-es
 Requires: smeserver-locale-fr
 Requires: smeserver-locale-it
+Requires: smeserver-locale-sv
 
 # These should be re-pulled by other e-smith packages.
 Obsoletes: perl-File-MMagic = 1.22-1
@@ -199,6 +200,7 @@ Requires: mc
 Requires: prelink
 Requires: psacct
 Requires: dmraid
+Requires: smeserver-ipp2p
 
 # Dungog contribs which Stephen Noble reports as incompatible with
 # SME7
@@ -209,6 +211,12 @@ Conflicts: smeserver-vdomain
 Obsoletes: smeserver-userpanel <= 0.9-9
 
 %changelog
+* Sun Feb 18 2007 Stephen Noble <support@dungog.net> 1.6.0-34
+- Add sv locale so language files get pulled in [SME: 911]
+
+* Sun Feb 18 2007 Stephen Noble <support@dungog.net> 1.6.0-33
+- Add ipp2p package (disabled) to block p2p traffic [SME: 38]
+
 * Mon Feb 12 2007 Stephen Noble <support@dungog.net> 1.6.0-32
 - Add Obsoletes header to remove smeserver-userpanel <=0.9-9 [SME: 2427]
 

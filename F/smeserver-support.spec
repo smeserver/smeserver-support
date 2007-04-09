@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 34
+%define release 35
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -143,11 +143,6 @@ Obsoletes: e-smith-userpanel
 Conflicts: e-smith-userpanel
 Obsoletes: dmc-mitel-mailrules
 Conflicts: dmc-mitel-mailrules
-# [SME 1283}
-Obsoletes: dungog-vdomain
-Conflicts: dungog-vdomain
-Obsoletes: smeserver-vdomain
-Conflicts: smeserver-vdomain
 
 # More packages which might have been installed via jhb's horde 3 script
 Obsoletes: perl-Unicode-IMAPUtf7 = 1.02-1
@@ -203,14 +198,39 @@ Requires: dmraid
 Requires: smeserver-ipp2p
 
 # Dungog contribs which Stephen Noble reports as incompatible with
-# SME7
+# SME 7.x [SME 1283] [SME 1295] [SME 2427]
 Obsoletes: dungog-vdomain
 Obsoletes: smeserver-vdomain
 Conflicts: dungog-vdomain
 Conflicts: smeserver-vdomain
 Obsoletes: smeserver-userpanel <= 0.9-9
+Obsoletes: dungog-autofs
+Obsoletes: dungog-nis
+Obsoletes: dungog-cgiinhtml
+Obsoletes: dungog-ispconnection
+Obsoletes: dungog-dialup
+Obsoletes: dungog-masq
+Obsoletes: dungog-sshd
+Obsoletes: dungog-tmda
+Obsoletes: dungog-ssl
+Obsoletes: dungog-deletedoublebounce
+Obsoletes: dungog-mailblocking
+Conflicts: dungog-autofs
+Conflicts: dungog-nis
+Conflicts: dungog-cgiinhtml
+Conflicts: dungog-ispconnection
+Conflicts: dungog-dialup
+Conflicts: dungog-masq
+Conflicts: dungog-sshd
+Conflicts: dungog-tmda
+Conflicts: dungog-ssl
+Conflicts: dungog-deletedoublebounce
+Conflicts: dungog-mailblocking
 
 %changelog
+* Mon Apr 09 2007 Stephen Noble <support@dungog.net> 1.6.0-35
+- Add Obsoletes and Conflicts for old dungog contribs [SME: 1295]
+
 * Sun Feb 18 2007 Shad L. Lords <slords@mail.com> 1.6.0-34
 - Add sv locale so language files get pulled in [SME: 911]
 

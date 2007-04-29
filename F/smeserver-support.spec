@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 35
+%define release 36
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -10,7 +10,7 @@ Name: %{name}
 %define centos_excludes kernel,kernel-smp,mkinitrd,mdadm,initscripts
 
 Version: %{version}
-Release: %smerelease %{release}
+Release: %{release}%{?dist}
 Packager: %{_packager}
 License: GPL
 Vendor: SME Server Developers
@@ -195,7 +195,6 @@ Requires: mc
 Requires: prelink
 Requires: psacct
 Requires: dmraid
-Requires: smeserver-ipp2p
 
 # Dungog contribs which Stephen Noble reports as incompatible with
 # SME 7.x [SME 1283] [SME 1295] [SME 2427]
@@ -228,6 +227,10 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Sun Apr 29 2007 Shad L. Lords <slords@mail.com> 1.6.0-36
+- Change to dist for tagging release
+- Remove ipp2p support. [SME: 38]
+
 * Mon Apr 09 2007 Stephen Noble <support@dungog.net> 1.6.0-35
 - Add Obsoletes and Conflicts for old dungog contribs [SME: 1295]
 

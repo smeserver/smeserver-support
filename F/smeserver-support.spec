@@ -11,9 +11,7 @@ Name: %{name}
 
 Version: %{version}
 Release: %{release}%{?dist}
-Packager: %{_packager}
 License: GPL
-Vendor: SME Server Developers
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 Source1: smeserver_logo.jpg
@@ -227,6 +225,9 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Sun Apr 29 2007 Shad L. Lords <slords@mail.com>
+- Clean up spec so package can be built by koji/plague
+
 * Sun Apr 29 2007 Shad L. Lords <slords@mail.com> 1.6.0-36
 - Change to dist for tagging release
 - Remove ipp2p support. [SME: 38]

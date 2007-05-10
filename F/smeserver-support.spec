@@ -2,12 +2,12 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 36
+%define release 37
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
 # prior to taking the update
-%define centos_excludes kernel,kernel-smp,mkinitrd,mdadm,initscripts
+%define centos_excludes kernel,kernel-smp,kernel-xenU,mkinitrd,mdadm,initscripts
 
 Version: %{version}
 Release: %{release}%{?dist}
@@ -39,6 +39,64 @@ Obsoletes: e-smith-keys
 Obsoletes: e-smith-support
 AutoReqProv: no
 
+# SME8 section
+%if "%{?rhel}" == "5"
+# remove old kernels that prevent upgrades
+Obsoletes: kernel < 2.6.17
+Obsoletes: kernel-smp < 2.6.17
+Obsoletes: kernel-xenU < 2.6.17
+
+# Kernel modules now included in kernel
+Obsoletes: kmod-slip
+Obsoletes: kmod-slip-smp
+Obsoletes: kmod-slip-xenU
+
+# Old dependencies from outdated atrpms/rpmforge packages
+Obsoletes: libghttp
+Obsoletes: perl-HTTP-GHTTP
+Obsoletes: perl-Net-SSLeay
+Obsoletes: perl-Net_SSLeay.pm
+Obsoletes: pythonabi
+
+# Remove packages no longer needed or provided in COS5
+Obsoletes: comps
+Obsoletes: pine
+Obsoletes: system-config-keyboard
+Obsoletes: system-config-mouse
+
+# remove netatalk and modules
+Obsoletes: e-smith-netatalk
+Obsoletes: kmod-appletalk
+Obsoletes: kmod-appletalk-smp
+Obsoletes: kmod-appletalk-xenU
+Obsoletes: netatalk
+
+%else
+# SME7 section
+Requires: slip-kmod
+
+# More packages which might have been installed via jhb's horde 3 script
+Obsoletes: perl-Unicode-IMAPUtf7 = 1.02-1
+Obsoletes: perl-Unicode-String = 2.06-1
+Obsoletes: file = 4.12-3db_rh73
+Obsoletes: libmcrypt = 2.5.7-1.dag.rh73
+Obsoletes: libmhash = 0.9.1-1.rh73.dag
+Obsoletes: php = 4.3.10-3eo
+Obsoletes: php-curl = 4.3.10-3eo
+Obsoletes: php-devel = 4.3.10-3eo
+Obsoletes: php-domxml = 4.3.10-3eo
+Obsoletes: php-imap = 4.3.10-3eo
+Obsoletes: php-ldap = 4.3.10-3eo
+Obsoletes: php-mcrypt = 4.3.10-3eo
+Obsoletes: php-mhash = 4.3.10-3eo
+Obsoletes: php-mysql = 4.3.10-3eo
+Obsoletes: php-odbc = 4.3.10-3eo
+Obsoletes: php-snmp = 4.3.10-3eo
+Obsoletes: php-xmlrpc = 4.3.10-3eo
+Obsoletes: unixODBC = 2.2.0-5
+Obsoletes: php-eaccelerator = 4.3.10_0.9.2a-1eo
+%endif
+
 # SF: 1357548
 Conflicts: selinux-policy-targeted
 
@@ -66,8 +124,6 @@ Requires: e-smith-dnscache
 Requires: e-smith-tinydns
 
 # This one should probably be in e-smith-base
-Requires: kmod-slip
-Requires: kmod-slip-smp
 Obsoletes: kernel-module-slip
 Obsoletes: kernel-smp-module-slip
 Obsoletes: kernel-module-st
@@ -142,27 +198,6 @@ Conflicts: e-smith-userpanel
 Obsoletes: dmc-mitel-mailrules
 Conflicts: dmc-mitel-mailrules
 
-# More packages which might have been installed via jhb's horde 3 script
-Obsoletes: perl-Unicode-IMAPUtf7 = 1.02-1
-Obsoletes: perl-Unicode-String = 2.06-1
-Obsoletes: file = 4.12-3db_rh73
-Obsoletes: libmcrypt = 2.5.7-1.dag.rh73
-Obsoletes: libmhash = 0.9.1-1.rh73.dag
-Obsoletes: php = 4.3.10-3eo
-Obsoletes: php-curl = 4.3.10-3eo
-Obsoletes: php-devel = 4.3.10-3eo
-Obsoletes: php-domxml = 4.3.10-3eo
-Obsoletes: php-imap = 4.3.10-3eo
-Obsoletes: php-ldap = 4.3.10-3eo
-Obsoletes: php-mcrypt = 4.3.10-3eo
-Obsoletes: php-mhash = 4.3.10-3eo
-Obsoletes: php-mysql = 4.3.10-3eo
-Obsoletes: php-odbc = 4.3.10-3eo
-Obsoletes: php-snmp = 4.3.10-3eo
-Obsoletes: php-xmlrpc = 4.3.10-3eo
-Obsoletes: unixODBC = 2.2.0-5
-Obsoletes: php-eaccelerator = 4.3.10_0.9.2a-1eo
-
 # This block used to be in the SMEServer RPM. Many are probably 
 # redundant or should be elsewhere or removed
 # [SF: 1356225]
@@ -225,6 +260,9 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Wed May 9 2007 Shad L. Lords <slords@mail.com> 1.6.0-37
+- Updates to support SME Server 8
+
 * Sun Apr 29 2007 Shad L. Lords <slords@mail.com>
 - Clean up spec so package can be built by koji/plague
 

@@ -63,6 +63,7 @@ Obsoletes: comps
 Obsoletes: pine
 Obsoletes: system-config-keyboard
 Obsoletes: system-config-mouse
+Obsoletes: xorg-x11-Mesa-libGL
 
 # remove netatalk and modules
 Obsoletes: e-smith-netatalk

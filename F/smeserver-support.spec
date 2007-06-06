@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 37
+%define release 38
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -29,6 +29,7 @@ Patch9: smeserver-support-1.6.0-initialtext.patch3
 Patch10: smeserver-support-1.6.0-initialtext.patch4
 Patch11: smeserver-support-1.6.0-cssStyling.patch
 Patch12: smeserver-support-1.6.0-redhat-release.patch
+Patch13: smeserver-support-1.6.0-smolt.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
 BuildArchitectures: noarch
@@ -105,6 +106,7 @@ Conflicts: selinux-policy-targeted
 Requires: audit-libs
 
 # New features that we want to pull in on upgrades
+Requires: smolt
 Requires: rkhunter
 Requires: screen
 Requires: smeserver-yum
@@ -261,6 +263,9 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Wed Jun 6 2007 Shad L. Lords <slords@mail.com> 1.6.0-38
+- Add smolt service for hardware profiling.
+
 * Wed May 9 2007 Shad L. Lords <slords@mail.com> 1.6.0-37
 - Updates to support SME Server 8
 
@@ -835,6 +840,7 @@ cp %{SOURCE2} root/etc/e-smith/web/common
 %patch10 -p1
 %patch11 -p1
 %patch12 -p1
+%patch13 -p1
 
 %build
 perl createlinks

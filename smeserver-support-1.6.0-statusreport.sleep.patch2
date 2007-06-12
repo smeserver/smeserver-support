@@ -1,0 +1,10 @@
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.6.0/root/etc/e-smith/templates/etc/crontab/statusreport mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/templates/etc/crontab/statusreport
+--- smeserver-support-1.6.0/root/etc/e-smith/templates/etc/crontab/statusreport	2006-05-31 20:01:47.000000000 -0400
++++ mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/templates/etc/crontab/statusreport	2006-05-31 20:01:24.000000000 -0400
+@@ -7,5 +7,5 @@
+     my $minute = ${statusreport}{Minute};
+ 
+     return "$minute $hour * * $dow root " 
+-           . q{ sleep $[ $RANDOM % 60 ]; /sbin/e-smith/statusreport };
++           . q{ sleep $[ $RANDOM \\% 60 ]; /sbin/e-smith/statusreport };
+ }

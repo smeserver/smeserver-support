@@ -1,0 +1,196 @@
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.6.0/root/etc/e-smith/db/configuration/defaults/statusreport/status mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/db/configuration/defaults/statusreport/status
+--- smeserver-support-1.6.0/root/etc/e-smith/db/configuration/defaults/statusreport/status	1970-01-01 10:00:00.000000000 +1000
++++ mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/db/configuration/defaults/statusreport/status	2006-05-23 15:57:02.197881061 +1000
+@@ -0,0 +1 @@
++enabled
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.6.0/root/etc/e-smith/db/configuration/defaults/statusreport/type mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/db/configuration/defaults/statusreport/type
+--- smeserver-support-1.6.0/root/etc/e-smith/db/configuration/defaults/statusreport/type	1970-01-01 10:00:00.000000000 +1000
++++ mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/db/configuration/defaults/statusreport/type	2006-05-23 15:57:15.092660083 +1000
+@@ -0,0 +1 @@
++service
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.6.0/root/etc/e-smith/db/configuration/migrate/20InstallEpoch mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/db/configuration/migrate/20InstallEpoch
+--- smeserver-support-1.6.0/root/etc/e-smith/db/configuration/migrate/20InstallEpoch	1970-01-01 10:00:00.000000000 +1000
++++ mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/db/configuration/migrate/20InstallEpoch	2006-05-23 16:11:43.147705337 +1000
+@@ -0,0 +1,7 @@
++{
++    my $sysconfig = $DB->get('sysconfig') 
++        || $DB->new_record('sysconfig', { type => 'configuration' });
++
++    $sysconfig->prop('InstallEpoch') 
++        || $sysconfig->set_prop('InstallEpoch', time);
++}
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.6.0/root/etc/e-smith/db/configuration/migrate/20StatusReport mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/db/configuration/migrate/20StatusReport
+--- smeserver-support-1.6.0/root/etc/e-smith/db/configuration/migrate/20StatusReport	1970-01-01 10:00:00.000000000 +1000
++++ mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/db/configuration/migrate/20StatusReport	2006-05-23 16:10:52.332530794 +1000
+@@ -0,0 +1,11 @@
++{
++    my $rec = $DB->get('statusreport') 
++              || $DB->new_record('statusreport', { type => 'service' });
++
++    my %props = $rec->props;
++
++    exists $props{DayOfWeek} or $props{DayOfWeek} = int(rand(7));
++    exists $props{Hour}      or $props{Hour}      = int(rand(24));
++    exists $props{Minute}    or $props{Minute}    = int(rand(60));
++    $rec->merge_props(%props);
++}
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.6.0/root/etc/e-smith/templates/etc/crontab/statusreport mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/templates/etc/crontab/statusreport
+--- smeserver-support-1.6.0/root/etc/e-smith/templates/etc/crontab/statusreport	1970-01-01 10:00:00.000000000 +1000
++++ mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/templates/etc/crontab/statusreport	2006-05-23 16:16:57.476210399 +1000
+@@ -0,0 +1,10 @@
++{
++    return "# statusreport disabled"
++        unless ${statusreport}{status} eq 'enabled';
++
++    my $dow    = ${statusreport}{DayOfWeek};
++    my $hour   = ${statusreport}{Hour};
++    my $minute = ${statusreport}{Minute};
++
++    return "$minute $hour * * $dow root /sbin/e-smith/statusreport";
++}
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.6.0/root/sbin/e-smith/console-menu-items/testInternet.pl mezzanine_patched_smeserver-support-1.6.0/root/sbin/e-smith/console-menu-items/testInternet.pl
+--- smeserver-support-1.6.0/root/sbin/e-smith/console-menu-items/testInternet.pl	2006-01-05 16:58:14.000000000 +1100
++++ mezzanine_patched_smeserver-support-1.6.0/root/sbin/e-smith/console-menu-items/testInternet.pl	2006-05-23 16:58:58.609081633 +1000
+@@ -26,13 +26,6 @@
+ 
+ sub doit
+ {
+-    use LWP;
+-    use HTTP::Request::Common;
+-    use Digest::SHA1 qw(sha1_hex);
+-
+-    use esmith::ConfigDB;
+-    my $db = esmith::ConfigDB->open_ro or die "Couldn't open ConfigDB\n";
+-
+     my $console = new esmith::console;
+ 
+     ($rc, $choice) = $console->yesno_page
+@@ -50,38 +43,12 @@
+ 
+     return unless ($rc == 0);
+ 
+-    use constant SERVERTEST => 'http://www.contribs.org/servertest/';
+-
+-    my $release = esmith::util::determineRelease();
+-    my $sysid_hash = sha1_hex($db->get_prop('sysconfig','SystemID'));
+-
+-    my $url = SERVERTEST . "?" . "ReleaseVersion=$release" .
+-                                "&SystemIDHash=$sysid_hash";
+-
+-    my $ua = LWP::UserAgent->new;
+-
+-    # add proxy arguments if appropriate
+-    if ($db->get_value('SquidParent'))
+-    {
+-        my $parent = $db->get_value('SquidParent');
+-        my $port = $db->get_value('SquidParentPort') || "3128";
+-        $ua->proxy(['http', 'ftp'], "http://$parent:$port/");
+-    }
+-
+     print '-' x 75 . "\n";
+     print gettext("Attempting to test Internet connection.") . "\n";
+     print gettext("If this test takes too long, please halt it by typing Ctrl-C.") . "\n";
+     print '-' x 75 . "\n";
+ 
+-    my $response;
+-
+-    eval {
+-        local $SIG{INT} = sub {die 1};
+-
+-        $response = $ua->get($url);
+-    };	
+-
+-    if ($response->is_success)
++    if (system("/sbin/e-smith/statusreport") == 0)
+     {
+         ($rc, $choice) = $console->message_page
+             (
+@@ -92,10 +59,6 @@
+     }
+     else
+     {
+-        warn gettext("Response to Internet test was"), ": ",
+-            $response->message,
+-                "\n";
+-
+         ($rc, $choice) = $console->message_page
+             (
+              title => "Internet connection failed",
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.6.0/root/sbin/e-smith/statusreport mezzanine_patched_smeserver-support-1.6.0/root/sbin/e-smith/statusreport
+--- smeserver-support-1.6.0/root/sbin/e-smith/statusreport	1970-01-01 10:00:00.000000000 +1000
++++ mezzanine_patched_smeserver-support-1.6.0/root/sbin/e-smith/statusreport	2006-05-23 17:08:45.918042833 +1000
+@@ -0,0 +1,74 @@
++#!/usr/bin/perl
++#----------------------------------------------------------------------
++# statusreport
++# copyright (C) 1999-2006 Mitel Corporation
++# Copyright (C) 2006 Gordon Rowell <gordonr@gormand.com.au>
++#
++# This program is free software; you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 2 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License or more details.
++#
++# You should have received a copy of the GNU General Public License
++# along with this program; if not, write to the Free Software
++# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307  USA
++#----------------------------------------------------------------------
++
++use strict;
++use warnings;
++
++use Locale::gettext;
++use LWP;
++use HTTP::Request::Common;
++use Digest::SHA1 qw(sha1_hex);
++
++use esmith::ConfigDB;
++my $db = esmith::ConfigDB->open_ro or die "Couldn't open ConfigDB\n";
++
++use constant SERVERTEST => 'http://www.contribs.org/servertest/';
++
++my $sysid_hash = sha1_hex($db->get_prop('sysconfig','SystemID'));
++
++my $url = SERVERTEST 
++          . "?" 
++          . "ReleaseVersion=" . $db->get_prop('sysconfig', 'ReleaseVersion')
++          . "&SystemIDHash="  . $sysid_hash
++          . "&CurrentEpoch="  . time
++          . "&InstallEpoch="  . $db->get_prop('sysconfig', 'InstallEpoch')
++          . "&SystemMode="    . $db->get_value('SystemMode');
++
++my $ua = LWP::UserAgent->new;
++
++#return add proxy arguments if appropriate
++if ($db->get_value('SquidParent'))
++{
++    my $parent = $db->get_value('SquidParent');
++    my $port = $db->get_value('SquidParentPort') || "3128";
++    $ua->proxy(['http', 'ftp'], "http://$parent:$port/");
++}
++
++my $response;
++
++eval {
++        local $SIG{INT} = sub {die 1};
++
++        $response = $ua->get($url);
++    };
++
++if ($response->is_success)
++{
++    exit 0;
++}
++else
++{
++    warn gettext("Response to Internet test was"), ": ",
++        $response->message,
++        "\n";
++
++    exit 1;
++}

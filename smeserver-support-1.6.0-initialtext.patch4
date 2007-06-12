@@ -1,0 +1,21 @@
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.6.0/root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/initial.cgi mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/initial.cgi
+--- smeserver-support-1.6.0/root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/initial.cgi	2006-06-30 11:15:51.876825181 +1000
++++ mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/initial.cgi	2006-06-30 11:15:39.724970542 +1000
+@@ -11,7 +11,7 @@
+         <p>
+         Welcome to SME Server, the leading Linux distribution for
+         small and medium enterprises. SME Server is brought to
+-        you by <A HREF="http://www.smeserver.org" TARGET="_blank">SME Server, Inc.</A>,
++        you by <A HREF="http://www.smeserver.org/" TARGET="_blank">SME Server, Inc.</A>,
+         a non-profit corporation that exists to provide marketing and
+         legal support for SME Server.
+         </p>
+@@ -31,7 +31,7 @@
+ 
+         <p>
+         <b>
+-        Please visit <A HREF="http://www.smeserver.org" TARGET="_blank">www.smeserver.org</A>
++        Please visit <A HREF="http://www.smeserver.org/donate/" TARGET="_blank">http://www.smeserver.org/donate/</A>
+         to donate.
+         </b></P>
+ 

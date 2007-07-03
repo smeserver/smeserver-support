@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 38
+%define release 39
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -65,6 +65,7 @@ Obsoletes: pine
 Obsoletes: system-config-keyboard
 Obsoletes: system-config-mouse
 Obsoletes: xorg-x11-Mesa-libGL
+Obsoletes: yum-metadata-parser
 
 # remove netatalk and modules
 Obsoletes: e-smith-netatalk
@@ -263,6 +264,9 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Tue Jul 3 2007 Shad L. Lords <slords@mail.com> 1.6.0-39
+- Remove yum-metadata-parser under sme8.
+
 * Wed Jun 6 2007 Shad L. Lords <slords@mail.com> 1.6.0-38
 - Add smolt service for hardware profiling.
 

@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 39
+%define release 40
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -55,7 +55,6 @@ Obsoletes: kmod-slip-xenU
 # Old dependencies from outdated atrpms/rpmforge packages
 Obsoletes: libghttp
 Obsoletes: perl-HTTP-GHTTP
-Obsoletes: perl-Net-SSLeay
 Obsoletes: perl-Net_SSLeay.pm
 Obsoletes: pythonabi
 
@@ -264,6 +263,9 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Fri Sep 7 2007 Shad L. Lords <slords@mail.com> 1.6.0-40
+- Upcate obsoletes for sme8 [SME: 2437]
+
 * Tue Jul 3 2007 Shad L. Lords <slords@mail.com> 1.6.0-39
 - Remove yum-metadata-parser under sme8.
 

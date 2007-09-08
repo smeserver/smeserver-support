@@ -264,7 +264,7 @@ Conflicts: dungog-mailblocking
 
 %changelog
 * Fri Sep 7 2007 Shad L. Lords <slords@mail.com> 1.6.0-40
-- Upcate obsoletes for sme8 [SME: 2437]
+- Update obsoletes for sme8 [SME: 2437]
 
 * Tue Jul 3 2007 Shad L. Lords <slords@mail.com> 1.6.0-39
 - Remove yum-metadata-parser under sme8.

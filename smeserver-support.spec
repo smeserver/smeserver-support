@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 40
+%define release 41
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -136,7 +136,6 @@ Obsoletes: kernel-module-st
 Obsoletes: e-smith-loginscript = 0.2-2
 Obsoletes: e-smith-samba = 2.1.0-10gjz
 Requires: e-smith-samba
-Requires: check4updates
 
 # Pull in locales so we have a smooth language upgrade [SF: 1309520]
 Requires: smeserver-locale-de
@@ -263,6 +262,9 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Mon Jan 7 2008 Gavin Weight <gweight@gmail.com> 1.6.0-41
+- Remove check4updates requires line. [SME: 3250]
+
 * Fri Sep 7 2007 Shad L. Lords <slords@mail.com> 1.6.0-40
 - Update obsoletes for sme8 [SME: 2437]
 

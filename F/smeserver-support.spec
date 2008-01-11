@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 41
+%define release 42
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -163,6 +163,7 @@ Obsoletes: squid = 9:2.5.STABLE3-6.3E.2es01
 
 # Specific package versions we dont want.
 # These were installed with older version but aren't needed.
+Obsoletes: check4updates
 Obsoletes: authconfig = 4.2.8-4
 Obsoletes: bind-utils = 9.2.1-1.7x.2
 Obsoletes: cvs = 1.11.1p1-7es02
@@ -262,6 +263,9 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Fri Jan 11 2008 Stephen Noble <support@dungog.net> 1.6.0-42
+- Add Obsolete check4updates   [SME: 3250]
+
 * Mon Jan 7 2008 Gavin Weight <gweight@gmail.com> 1.6.0-41
 - Remove check4updates requires line. [SME: 3250]
 

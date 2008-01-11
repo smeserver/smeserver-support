@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 41
+%define release 43
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -262,6 +262,12 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Fri Jan 11 2008 Shad L. Lords <slords@mail.com> 1.6.0-43
+- Revert obsoletes check4updates, should be in smeserver-yum [SME: 3250]
+
+* Fri Jan 11 2008 Stephen Noble <support@dungog.net> 1.6.0-42
+- Add Obsolete check4updates   [SME: 3250]
+
 * Mon Jan 7 2008 Gavin Weight <gweight@gmail.com> 1.6.0-41
 - Remove check4updates requires line. [SME: 3250]
 

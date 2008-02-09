@@ -1,0 +1,45 @@
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.6.0/root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/support mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/support
+--- smeserver-support-1.6.0/root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/support	1970-01-01 10:00:00.000000000 +1000
++++ mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/support	2008-02-09 19:47:30.000000000 +1100
+@@ -0,0 +1,16 @@
++<lexicon lang="en-us">
++    <entry>
++      <base>FORM_TITLE</base>
++      <trans>Support, warranty and licensing information</trans>
++    </entry>
++
++    <entry>
++        <base>Miscellaneous</base>
++        <trans>Miscellaneous</trans>
++    </entry>
++
++    <entry>
++        <base>Support and licensing</base>
++        <trans>Support and licensing</trans>
++    </entry>
++</lexicon>
+diff -Nur -x '*.orig' -x '*.rej' smeserver-support-1.6.0/root/etc/e-smith/web/functions/support mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/web/functions/support
+--- smeserver-support-1.6.0/root/etc/e-smith/web/functions/support	2006-01-05 16:58:14.000000000 +1100
++++ mezzanine_patched_smeserver-support-1.6.0/root/etc/e-smith/web/functions/support	2008-02-09 19:47:40.000000000 +1100
+@@ -55,21 +55,4 @@
+   <page name="Initial" pre-event="turn_off_buttons()">
+     <subroutine src="display_licenses()"/>
+   </page>
+-
+-  <lexicon lang="en-us">
+-    <entry>
+-      <base>FORM_TITLE</base>
+-      <trans>Support, warranty and licensing information</trans>
+-    </entry>
+-
+-    <entry>
+-        <base>Miscellaneous</base>
+-        <trans>Miscellaneous</trans>
+-    </entry>
+-    <entry>
+-        <base>Support and licensing</base>
+-        <trans>Support and licensing</trans>
+-    </entry>
+-
+-  </lexicon>
+ </form>

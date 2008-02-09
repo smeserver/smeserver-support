@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 43
+%define release 44
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -30,6 +30,7 @@ Patch10: smeserver-support-1.6.0-initialtext.patch4
 Patch11: smeserver-support-1.6.0-cssStyling.patch
 Patch12: smeserver-support-1.6.0-redhat-release.patch
 Patch13: smeserver-support-1.6.0-smolt.patch
+Patch14: smeserver-support-1.6.0-supportlexicon.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
 BuildArchitectures: noarch
@@ -262,6 +263,9 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Sat Feb 09 2008 Stephen Noble <support@dungog.net> 1.6.0-44
+- move support lexicon  [SME: 3878]
+
 * Fri Jan 11 2008 Shad L. Lords <slords@mail.com> 1.6.0-43
 - Revert obsoletes check4updates, should be in smeserver-yum [SME: 3250]
 
@@ -855,6 +859,7 @@ cp %{SOURCE2} root/etc/e-smith/web/common
 %patch11 -p1
 %patch12 -p1
 %patch13 -p1
+%patch14 -p1
 
 %build
 perl createlinks

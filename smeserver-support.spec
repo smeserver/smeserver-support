@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 44
+%define release 45
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -31,6 +31,7 @@ Patch11: smeserver-support-1.6.0-cssStyling.patch
 Patch12: smeserver-support-1.6.0-redhat-release.patch
 Patch13: smeserver-support-1.6.0-smolt.patch
 Patch14: smeserver-support-1.6.0-supportlexicon.patch
+Patch15: smeserver-support-1.6.0-tags2general.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
 BuildArchitectures: noarch
@@ -115,6 +116,7 @@ Obsoletes: yum = 1.0.3-6.0.7.x.esmith
 Requires: smeserver-clamav
 Requires: e-smith-spamassassin
 Requires: smeserver-audittools
+Requires: e-smith-formmagick >= 1.4.0-9
 
 # These packages weren't in 5.x, or were split from e-smith-base since then
 Requires: e-smith-domains
@@ -263,6 +265,9 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Wed Feb 13 2008 Stephen Noble <support@dungog.net> 1.6.0-45
+- Remove <base> tags now in general [SME: 3928]
+
 * Sat Feb 09 2008 Stephen Noble <support@dungog.net> 1.6.0-44
 - move support lexicon  [SME: 3878]
 
@@ -860,6 +865,7 @@ cp %{SOURCE2} root/etc/e-smith/web/common
 %patch12 -p1
 %patch13 -p1
 %patch14 -p1
+%patch15 -p1
 
 %build
 perl createlinks

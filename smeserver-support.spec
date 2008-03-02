@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 45
+%define release 46
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -141,10 +141,17 @@ Obsoletes: e-smith-samba = 2.1.0-10gjz
 Requires: e-smith-samba
 
 # Pull in locales so we have a smooth language upgrade [SF: 1309520]
+#Requires: smeserver-locale-ca
+Requires: smeserver-locale-da
 Requires: smeserver-locale-de
+Requires: smeserver-locale-el
 Requires: smeserver-locale-es
 Requires: smeserver-locale-fr
+Requires: smeserver-locale-id
 Requires: smeserver-locale-it
+Requires: smeserver-locale-nl
+Requires: smeserver-locale-pt
+Requires: smeserver-locale-sl
 Requires: smeserver-locale-sv
 
 # These should be re-pulled by other e-smith packages.
@@ -265,6 +272,14 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Sat Mar 1 2008 Shad L. Lords <slords@mail.com> 1.6.0-46
+- Add support for Danish (da) [SME: 4006]
+- Add support for Dutch (nl) [SME: 4006]
+- Add support for Greek (el) [SME: 4006]
+- Add support for Indonesian (id) [SME: 4006]
+- Add support for Portuguese (pt) [SME: 4006]
+- Add support for Slovenian (sl) [SME: 4006]
+
 * Wed Feb 13 2008 Stephen Noble <support@dungog.net> 1.6.0-45
 - Remove <base> tags now in general [SME: 3928]
 

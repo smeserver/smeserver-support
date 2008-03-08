@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 46
+%define release 47
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -32,6 +32,7 @@ Patch12: smeserver-support-1.6.0-redhat-release.patch
 Patch13: smeserver-support-1.6.0-smolt.patch
 Patch14: smeserver-support-1.6.0-supportlexicon.patch
 Patch15: smeserver-support-1.6.0-tags2general.patch
+Patch16: smeserver-support-1.6.0-gettextNetConnectFail.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
 BuildArchitectures: noarch
@@ -272,6 +273,9 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Sat Mar 07 2008 Stephen Noble <support@dungog.net> 1.6.0-47
+- gettext Internet connection failed [SME: 631]
+
 * Sat Mar 1 2008 Shad L. Lords <slords@mail.com> 1.6.0-46
 - Add support for Danish (da) [SME: 4006]
 - Add support for Dutch (nl) [SME: 4006]
@@ -881,6 +885,7 @@ cp %{SOURCE2} root/etc/e-smith/web/common
 %patch13 -p1
 %patch14 -p1
 %patch15 -p1
+%patch16 -p1
 
 %build
 perl createlinks

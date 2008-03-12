@@ -2,7 +2,7 @@ Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 47
+%define release 48
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -148,6 +148,7 @@ Requires: smeserver-locale-de
 Requires: smeserver-locale-el
 Requires: smeserver-locale-es
 Requires: smeserver-locale-fr
+Requires: smeserver-locale-hu
 Requires: smeserver-locale-id
 Requires: smeserver-locale-it
 Requires: smeserver-locale-nl
@@ -273,6 +274,9 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Wed Mar 12 2008 Shad L. Lords <slords@mail.com> 1.6.0-48
+- Add support for Hungarian (hu) [SME: 4025]
+
 * Sat Mar 07 2008 Stephen Noble <support@dungog.net> 1.6.0-47
 - gettext Internet connection failed [SME: 631]
 

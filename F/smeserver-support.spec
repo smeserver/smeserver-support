@@ -276,7 +276,7 @@ Conflicts: dungog-mailblocking
 
 %changelog
 * Tue Mar 18 2008 Shad L. Lords <slords@mail.com> 1.6.0-50
-- Add gettext to console titles.
+- Add gettext to console titles. [SME: 4089]
 
 * Tue Mar 18 2008 Shad L. Lords <slords@mail.com> 1.6.0-49
 - Fix support for Portuguese (pt_BR) [SME: 4006]

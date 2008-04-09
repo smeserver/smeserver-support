@@ -1,3 +1,5 @@
+# $Id: smeserver-support.spec,v 1.14 2008/04/09 13:51:57 slords Exp $
+
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}

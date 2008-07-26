@@ -1,10 +1,10 @@
-# $Id: smeserver-support.spec,v 1.14 2008/04/09 13:51:57 slords Exp $
+# $Id: smeserver-support.spec,v 1.15 2008/07/26 16:58:39 slords Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 50
+%define release 51
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -146,6 +146,7 @@ Requires: e-smith-samba
 
 # Pull in locales so we have a smooth language upgrade [SF: 1309520]
 #Requires: smeserver-locale-ca
+Requires: smeserver-locale-bg
 Requires: smeserver-locale-da
 Requires: smeserver-locale-de
 Requires: smeserver-locale-el
@@ -155,9 +156,11 @@ Requires: smeserver-locale-hu
 Requires: smeserver-locale-id
 Requires: smeserver-locale-it
 Requires: smeserver-locale-nl
+Requires: smeserver-locale-pt
 Requires: smeserver-locale-pt_BR
 Requires: smeserver-locale-sl
 Requires: smeserver-locale-sv
+Requires: smeserver-locale-tr
 
 # These should be re-pulled by other e-smith packages.
 Obsoletes: perl-File-MMagic = 1.22-1
@@ -277,6 +280,11 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Sat Jul 26 2008 Shad L. Lords <slords@mail.com> 1.6.0-51
+- Add support for Bulgarian (bg) [SME: 4337]
+- Re-add support for Portuguese (pt) [SME: 4006]
+- Add support for Turkish (tr) [SME: 4443]
+
 * Tue Mar 18 2008 Shad L. Lords <slords@mail.com> 1.6.0-50
 - Add gettext to console titles.
 

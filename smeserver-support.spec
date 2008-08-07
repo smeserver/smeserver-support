@@ -1,10 +1,10 @@
-# $Id: smeserver-support.spec,v 1.15 2008/07/26 16:58:39 slords Exp $
+# $Id: smeserver-support.spec,v 1.16 2008/08/07 14:58:28 slords Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 51
+%define release 52
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -70,7 +70,6 @@ Obsoletes: pine
 Obsoletes: system-config-keyboard
 Obsoletes: system-config-mouse
 Obsoletes: xorg-x11-Mesa-libGL
-Obsoletes: yum-metadata-parser
 
 # remove netatalk and modules
 Obsoletes: e-smith-netatalk
@@ -280,6 +279,9 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Thu Aug  7 2008 Charlie Brady <charlieb@e-smith.com> 1.6.0-52
+- Remove incorrect 'Obsoletes: yum-metadata-parser'. [SME: 4466]
+
 * Sat Jul 26 2008 Shad L. Lords <slords@mail.com> 1.6.0-51
 - Add support for Bulgarian (bg) [SME: 4337]
 - Re-add support for Portuguese (pt) [SME: 4006]

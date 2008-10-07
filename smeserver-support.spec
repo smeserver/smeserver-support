@@ -1,15 +1,20 @@
-# $Id: smeserver-support.spec,v 1.16 2008/08/07 14:58:28 slords Exp $
+# $Id: smeserver-support.spec,v 1.17 2008/10/07 14:06:43 slords Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 1.6.0
-%define release 52
+%define release 53
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
 # prior to taking the update
+%if "%{?rhel}" == "5"
+# TODO: check mkinitrd,mdadm to see if needed
+%define centos_excludes initscripts
+%else
 %define centos_excludes kernel,kernel-smp,kernel-xenU,mkinitrd,mdadm,initscripts
+%endif
 
 Version: %{version}
 Release: %{release}%{?dist}
@@ -279,6 +284,9 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Tue Oct 7 2008 Shad L. Lords <slords@mail.com> 1.6.0-53
+- Update excludes for sme8 [SME: 4507]
+
 * Thu Aug  7 2008 Charlie Brady <charlieb@e-smith.com> 1.6.0-52
 - Remove incorrect 'Obsoletes: yum-metadata-parser'. [SME: 4466]
 

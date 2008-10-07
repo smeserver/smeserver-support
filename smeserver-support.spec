@@ -1,20 +1,17 @@
-# $Id: smeserver-support.spec,v 1.17 2008/10/07 14:06:43 slords Exp $
+# $Id: smeserver-support.spec,v 1.18 2008/10/07 14:48:33 slords Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
-%define version 1.6.0
-%define release 53
+%define version 2.2.0
+%define release 1
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
 # prior to taking the update
-%if "%{?rhel}" == "5"
+
 # TODO: check mkinitrd,mdadm to see if needed
 %define centos_excludes initscripts
-%else
-%define centos_excludes kernel,kernel-smp,kernel-xenU,mkinitrd,mdadm,initscripts
-%endif
 
 Version: %{version}
 Release: %{release}%{?dist}
@@ -23,24 +20,6 @@ Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 Source1: smeserver_logo.jpg
 Source2: smeserver_logo.gif
-Patch0: smeserver-support-1.6.0-centosrelease.patch
-Patch1: smeserver-support-1.6.0-onlinemanuallocation.patch
-Patch2: smeserver-support-1.6.0-statusreport.patch
-Patch3: smeserver-support-1.6.0-statusreport.patch2
-Patch4: smeserver-support-1.6.0-statusreport.sleep.patch
-Patch5: smeserver-support-1.6.0-logo.patch 
-Patch6: smeserver-support-1.6.0-statusreport.sleep.patch2
-Patch7: smeserver-support-1.6.0-initialtext.patch
-Patch8: smeserver-support-1.6.0-initialtext.patch2
-Patch9: smeserver-support-1.6.0-initialtext.patch3
-Patch10: smeserver-support-1.6.0-initialtext.patch4
-Patch11: smeserver-support-1.6.0-cssStyling.patch
-Patch12: smeserver-support-1.6.0-redhat-release.patch
-Patch13: smeserver-support-1.6.0-smolt.patch
-Patch14: smeserver-support-1.6.0-supportlexicon.patch
-Patch15: smeserver-support-1.6.0-tags2general.patch
-Patch16: smeserver-support-1.6.0-gettextNetConnectFail.patch
-Patch17: smeserver-support-1.6.0-gettextConsole.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
 BuildArchitectures: noarch
@@ -51,8 +30,6 @@ Obsoletes: e-smith-keys
 Obsoletes: e-smith-support
 AutoReqProv: no
 
-# SME8 section
-%if "%{?rhel}" == "5"
 # remove old kernels that prevent upgrades
 Obsoletes: kernel < 2.6.17
 Obsoletes: kernel-smp < 2.6.17
@@ -82,32 +59,6 @@ Obsoletes: kmod-appletalk
 Obsoletes: kmod-appletalk-smp
 Obsoletes: kmod-appletalk-xenU
 Obsoletes: netatalk
-
-%else
-# SME7 section
-Requires: slip-kmod
-
-# More packages which might have been installed via jhb's horde 3 script
-Obsoletes: perl-Unicode-IMAPUtf7 = 1.02-1
-Obsoletes: perl-Unicode-String = 2.06-1
-Obsoletes: file = 4.12-3db_rh73
-Obsoletes: libmcrypt = 2.5.7-1.dag.rh73
-Obsoletes: libmhash = 0.9.1-1.rh73.dag
-Obsoletes: php = 4.3.10-3eo
-Obsoletes: php-curl = 4.3.10-3eo
-Obsoletes: php-devel = 4.3.10-3eo
-Obsoletes: php-domxml = 4.3.10-3eo
-Obsoletes: php-imap = 4.3.10-3eo
-Obsoletes: php-ldap = 4.3.10-3eo
-Obsoletes: php-mcrypt = 4.3.10-3eo
-Obsoletes: php-mhash = 4.3.10-3eo
-Obsoletes: php-mysql = 4.3.10-3eo
-Obsoletes: php-odbc = 4.3.10-3eo
-Obsoletes: php-snmp = 4.3.10-3eo
-Obsoletes: php-xmlrpc = 4.3.10-3eo
-Obsoletes: unixODBC = 2.2.0-5
-Obsoletes: php-eaccelerator = 4.3.10_0.9.2a-1eo
-%endif
 
 # SF: 1357548
 Conflicts: selinux-policy-targeted
@@ -284,6 +235,9 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Tue Oct 7 2008 Shad L. Lords <slords@mail.com> 2.2.0-1.sme
+- Roll new stream to separate sme7/sme8 trees [SME: 4633]
+
 * Tue Oct 7 2008 Shad L. Lords <slords@mail.com> 1.6.0-53
 - Update excludes for sme8 [SME: 4507]
 
@@ -884,40 +838,8 @@ SME Server module to display support and licensing information
 
 %prep
 %setup
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch6 -p1
-
-mkdir -p root/etc/e-smith/templates/etc/issue
-touch root/etc/e-smith/templates/etc/issue/template-begin
-
-rm -f root/etc/e-smith/web/common/e-smith-manager.gif
-rm -rf root/etc/e-smith/locale/de
-rm -rf root/etc/e-smith/locale/fr
-rm -rf root/etc/e-smith/locale/es
-rm -rf root/etc/e-smith/locale/it
-rm -rf root/etc/e-smith/licenses/fr
-rm -rf root/etc/e-smith/licenses/fr_CA
-
-%patch5 -p1
-rm -f root/etc/e-smith/web/common/smeserver_logo.gif
 cp %{SOURCE1} root/etc/e-smith/web/common
 cp %{SOURCE2} root/etc/e-smith/web/common
-
-%patch7 -p1
-%patch8 -p1
-%patch9 -p1
-%patch10 -p1
-%patch11 -p1
-%patch12 -p1
-%patch13 -p1
-%patch14 -p1
-%patch15 -p1
-%patch16 -p1
-%patch17 -p1
 
 %build
 perl createlinks

@@ -1,10 +1,10 @@
-# $Id: smeserver-support.spec,v 1.18 2008/10/07 14:48:33 slords Exp $
+# $Id: smeserver-support.spec,v 1.19 2008/10/13 22:17:14 slords Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 2.2.0
-%define release 1
+%define release 2
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -110,6 +110,7 @@ Requires: smeserver-locale-fr
 Requires: smeserver-locale-hu
 Requires: smeserver-locale-id
 Requires: smeserver-locale-it
+Requires: smeserver-locale-ja
 Requires: smeserver-locale-nl
 Requires: smeserver-locale-pt
 Requires: smeserver-locale-pt_BR
@@ -235,6 +236,9 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Mon Oct 13 2008 Shad L. Lords <slords@mail.com> 2.2.0-2.sme
+- Add support for Japanese (ja) [SME: 4637]
+
 * Tue Oct 7 2008 Shad L. Lords <slords@mail.com> 2.2.0-1.sme
 - Roll new stream to separate sme7/sme8 trees [SME: 4633]
 

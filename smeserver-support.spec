@@ -1,10 +1,10 @@
-# $Id: smeserver-support.spec,v 1.19 2008/10/13 22:17:14 slords Exp $
+# $Id: smeserver-support.spec,v 1.20 2009/03/03 22:32:18 slords Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 2.0.0
-%define release 2
+%define release 3
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -91,7 +91,6 @@ Obsoletes: e-smith-samba = 2.1.0-10gjz
 Requires: e-smith-samba
 
 # Pull in locales so we have a smooth language upgrade [SF: 1309520]
-#Requires: smeserver-locale-ca
 Requires: smeserver-locale-bg
 Requires: smeserver-locale-da
 Requires: smeserver-locale-de
@@ -102,12 +101,15 @@ Requires: smeserver-locale-hu
 Requires: smeserver-locale-id
 Requires: smeserver-locale-it
 Requires: smeserver-locale-ja
+Requires: smeserver-locale-nb
 Requires: smeserver-locale-nl
 Requires: smeserver-locale-pt
 Requires: smeserver-locale-pt_BR
+Requires: smeserver-locale-ru
 Requires: smeserver-locale-sl
 Requires: smeserver-locale-sv
 Requires: smeserver-locale-tr
+Requires: smeserver-locale-zh_CN
 
 # These should be re-pulled by other e-smith packages.
 Obsoletes: perl-File-MMagic = 1.22-1
@@ -227,6 +229,11 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Tue Mar 3 2008 Shad L. Lords <slords@mail.com> 2.0.0-3.sme
+- Add support for Norwegian Bokmal (nb) [SME: 5002 ]
+- Add support for Russian (ru) [SME: 5002]
+- Add support for Chinese China (zh_CN) [SME: 5002]
+
 * Mon Oct 13 2008 Shad L. Lords <slords@mail.com> 2.0.0-2.sme
 - Add support for Japanese (ja) [SME: 4637]
 

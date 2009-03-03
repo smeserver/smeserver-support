@@ -1,4 +1,4 @@
-# $Id: smeserver-support.spec,v 1.20 2009/03/03 22:32:19 slords Exp $
+# $Id: smeserver-support.spec,v 1.21 2009/03/03 22:32:55 slords Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
@@ -238,7 +238,7 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
-* Tue Mar 3 2008 Shad L. Lords <slords@mail.com> 2.2.0-3.sme
+* Tue Mar 3 2009 Shad L. Lords <slords@mail.com> 2.2.0-3.sme
 - Add support for Norwegian Bokmal (nb) [SME: 5002 ]
 - Add support for Russian (ru) [SME: 5002]
 - Add support for Chinese China (zh_CN) [SME: 5002]

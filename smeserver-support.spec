@@ -1,10 +1,10 @@
-# $Id: smeserver-support.spec,v 1.21 2009/03/03 22:32:55 slords Exp $
+# $Id: smeserver-support.spec,v 1.22 2009/04/29 16:40:34 bytegw Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 2.2.0
-%define release 3
+%define release 4
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -105,6 +105,7 @@ Requires: smeserver-locale-da
 Requires: smeserver-locale-de
 Requires: smeserver-locale-el
 Requires: smeserver-locale-es
+Requires: smeserver-locale-et
 Requires: smeserver-locale-fr
 Requires: smeserver-locale-hu
 Requires: smeserver-locale-id
@@ -238,6 +239,9 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Wed Apr 29 2009 Gavin Weight <gweight@gmail.com> 2.0.0-4.sme
+- Add support for Estonian (et). [SME: 5203]
+
 * Tue Mar 3 2009 Shad L. Lords <slords@mail.com> 2.2.0-3.sme
 - Add support for Norwegian Bokmal (nb) [SME: 5002 ]
 - Add support for Russian (ru) [SME: 5002]

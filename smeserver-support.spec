@@ -1,4 +1,4 @@
-# $Id: smeserver-support.spec,v 1.22 2009/04/29 16:40:34 bytegw Exp $
+# $Id: smeserver-support.spec,v 1.23 2009/04/29 16:42:52 bytegw Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
@@ -239,7 +239,7 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
-* Wed Apr 29 2009 Gavin Weight <gweight@gmail.com> 2.0.0-4.sme
+* Wed Apr 29 2009 Gavin Weight <gweight@gmail.com> 2.2.0-4.sme
 - Add support for Estonian (et). [SME: 5203]
 
 * Tue Mar 3 2009 Shad L. Lords <slords@mail.com> 2.2.0-3.sme

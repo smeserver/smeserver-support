@@ -1,10 +1,10 @@
-# $Id: smeserver-support.spec,v 1.23 2009/04/29 16:42:52 bytegw Exp $
+# $Id: smeserver-support.spec,v 1.24 2009/05/13 14:53:52 filippocarletti Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 2.2.0
-%define release 4
+%define release 5
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -68,7 +68,6 @@ Requires: audit-libs
 
 # New features that we want to pull in on upgrades
 Requires: smolt
-Requires: rkhunter
 Requires: screen
 Requires: smeserver-yum
 Obsoletes: yum = 1.0.3-6.0.7.x.esmith
@@ -238,7 +237,13 @@ Conflicts: dungog-ssl
 Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
+# Remove rkhunter
+Obsoletes: rkhunter <= 1.3.4-7.el5.sme
+
 %changelog
+* Wed May 13 2009 Filippo Carletti <filippo.carletti@gmail.com> 2.2.0-5
+- Obsoletes: rkhunter to remove from default install [SME: 5172]
+
 * Wed Apr 29 2009 Gavin Weight <gweight@gmail.com> 2.2.0-4.sme
 - Add support for Estonian (et). [SME: 5203]
 

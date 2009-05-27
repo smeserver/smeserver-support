@@ -1,10 +1,10 @@
-# $Id: smeserver-support.spec,v 1.23 2009/05/27 14:00:39 wellsi Exp $
+# $Id: smeserver-support.spec,v 1.24 2009/05/27 14:39:50 slords Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 2.0.0
-%define release 5
+%define release 6
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -59,7 +59,6 @@ Requires: audit-libs
 
 # New features that we want to pull in on upgrades
 Requires: smolt
-Requires: rkhunter
 Requires: screen
 Requires: smeserver-yum
 Obsoletes: yum = 1.0.3-6.0.7.x.esmith
@@ -67,7 +66,6 @@ Requires: smeserver-clamav
 Requires: e-smith-spamassassin
 Requires: smeserver-audittools
 Requires: e-smith-formmagick >= 1.4.0-9
-Requires: smeserver-rkhunter
 
 # These packages weren't in 5.x, or were split from e-smith-base since then
 Requires: e-smith-domains
@@ -107,6 +105,7 @@ Requires: smeserver-locale-nb
 Requires: smeserver-locale-nl
 Requires: smeserver-locale-pt
 Requires: smeserver-locale-pt_BR
+Requires: smeserver-locale-ro
 Requires: smeserver-locale-ru
 Requires: smeserver-locale-sl
 Requires: smeserver-locale-sv
@@ -230,9 +229,15 @@ Conflicts: dungog-ssl
 Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
+# Remove rkhunter
+Obsoletes: rkhunter <= 1.3.4-7.el4.sme
+
 %changelog
-* Wed May 27 2009 Ian Wells <esmith@wellsi.com> 2.0.0-5.sme
-- Require smeserver-rkunter. [SME: 5234]
+* Wed May 27 2009 Shad L. Lords <slords@mail.com> 2.0.0-6.sme
+- Add support for Romanian (ro). [SME: 5268]
+
+* Wed May 27 2009 Shad L. Lords <slords@mail.com> 2.0.0-5.sme
+- Obsoletes: rkhunter to remove from default install [SME: 5172]
 
 * Wed Apr 29 2009 Gavin Weight <gweight@gmail.com> 2.0.0-4.sme
 - Add support for Estonian (et). [SME: 5203]

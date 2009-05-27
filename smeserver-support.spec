@@ -1,10 +1,10 @@
-# $Id: smeserver-support.spec,v 1.24 2009/05/13 14:53:52 filippocarletti Exp $
+# $Id: smeserver-support.spec,v 1.25 2009/05/27 14:39:50 slords Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 2.2.0
-%define release 5
+%define release 6
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -114,6 +114,7 @@ Requires: smeserver-locale-nb
 Requires: smeserver-locale-nl
 Requires: smeserver-locale-pt
 Requires: smeserver-locale-pt_BR
+Requires: smeserver-locale-ro
 Requires: smeserver-locale-ru
 Requires: smeserver-locale-sl
 Requires: smeserver-locale-sv
@@ -241,6 +242,9 @@ Conflicts: dungog-mailblocking
 Obsoletes: rkhunter <= 1.3.4-7.el5.sme
 
 %changelog
+* Wed May 27 2009 Shad L. Lords <slords@mail.com> 2.2.0-6.sme
+- Add support for Romanian (ro). [SME: 5268]
+
 * Wed May 13 2009 Filippo Carletti <filippo.carletti@gmail.com> 2.2.0-5
 - Obsoletes: rkhunter to remove from default install [SME: 5172]
 

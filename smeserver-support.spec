@@ -1,10 +1,10 @@
-# $Id: smeserver-support.spec,v 1.22 2009/04/29 16:40:34 bytegw Exp $
+# $Id: smeserver-support.spec,v 1.23 2009/05/27 14:00:39 wellsi Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 2.0.0
-%define release 4
+%define release 5
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -67,6 +67,7 @@ Requires: smeserver-clamav
 Requires: e-smith-spamassassin
 Requires: smeserver-audittools
 Requires: e-smith-formmagick >= 1.4.0-9
+Requires: smeserver-rkhunter
 
 # These packages weren't in 5.x, or were split from e-smith-base since then
 Requires: e-smith-domains
@@ -230,6 +231,9 @@ Conflicts: dungog-deletedoublebounce
 Conflicts: dungog-mailblocking
 
 %changelog
+* Wed May 27 2009 Ian Wells <esmith@wellsi.com> 2.0.0-5.sme
+- Require smeserver-rkunter. [SME: 5234]
+
 * Wed Apr 29 2009 Gavin Weight <gweight@gmail.com> 2.0.0-4.sme
 - Add support for Estonian (et). [SME: 5203]
 

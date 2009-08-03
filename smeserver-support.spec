@@ -1,10 +1,10 @@
-# $Id: smeserver-support.spec,v 1.25 2009/05/27 14:39:50 slords Exp $
+# $Id: smeserver-support.spec,v 1.26 2009/08/03 17:23:28 bytegw Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 2.2.0
-%define release 6
+%define release 7
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -39,6 +39,10 @@ Obsoletes: kernel-xenU < 2.6.17
 Obsoletes: kmod-slip
 Obsoletes: kmod-slip-smp
 Obsoletes: kmod-slip-xenU
+
+# remove old kernel modules that prevent upgrades 
+Obsoletes: kernel-module-appletalk
+Obsoletes: kernel-smp-module-appletalk
 
 # Old dependencies from outdated atrpms/rpmforge packages
 Obsoletes: libghttp
@@ -242,6 +246,9 @@ Conflicts: dungog-mailblocking
 Obsoletes: rkhunter <= 1.3.4-7.el5.sme
 
 %changelog
+* Mon Aug 03 2009 Gavin Weight <gweight@gmail.com> 2.2.0-7.sme
+- Add Obsoletes for kernel modules. [SME: 5386]
+
 * Wed May 27 2009 Shad L. Lords <slords@mail.com> 2.2.0-6.sme
 - Add support for Romanian (ro). [SME: 5268]
 

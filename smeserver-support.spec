@@ -1,10 +1,10 @@
-# $Id: smeserver-support.spec,v 1.26 2009/08/03 17:23:28 bytegw Exp $
+# $Id: smeserver-support.spec,v 1.27 2009/10/26 18:41:25 slords Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 2.2.0
-%define release 7
+%define release 8
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -55,6 +55,7 @@ Obsoletes: comps
 Obsoletes: pine
 Obsoletes: system-config-keyboard
 Obsoletes: system-config-mouse
+Obsoletes: VFlib2
 Obsoletes: xorg-x11-Mesa-libGL
 
 # remove netatalk and modules
@@ -246,6 +247,9 @@ Conflicts: dungog-mailblocking
 Obsoletes: rkhunter <= 1.3.4-7.el5.sme
 
 %changelog
+* Mon Oct 26 2009 Shad L. Lords <slords@mail.com> 2.2.0-8.sme
+- add VFlib2 to obsoletes list so upgrades work [SME: 5532]
+
 * Mon Aug 03 2009 Gavin Weight <gweight@gmail.com> 2.2.0-7.sme
 - Add Obsoletes for kernel modules. [SME: 5386]
 

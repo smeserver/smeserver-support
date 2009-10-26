@@ -1,10 +1,10 @@
-# $Id: smeserver-support.spec,v 1.27 2009/10/26 18:41:25 slords Exp $
+# $Id: smeserver-support.spec,v 1.28 2009/10/26 22:22:07 slords Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 2.2.0
-%define release 8
+%define release 9
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -52,6 +52,7 @@ Obsoletes: pythonabi
 
 # Remove packages no longer needed or provided in COS5
 Obsoletes: comps
+Obsoletes: fonts-xorg-base
 Obsoletes: pine
 Obsoletes: system-config-keyboard
 Obsoletes: system-config-mouse
@@ -247,6 +248,10 @@ Conflicts: dungog-mailblocking
 Obsoletes: rkhunter <= 1.3.4-7.el5.sme
 
 %changelog
+* Mon Oct 26 2009 Shad L. Lords <slords@mail.com> 2.2.0-9.sme
+- obsoletes fonts-xorg-base to prevent dragging in unneeded
+  packages [SME: 5535]
+
 * Mon Oct 26 2009 Shad L. Lords <slords@mail.com> 2.2.0-8.sme
 - add VFlib2 to obsoletes list so upgrades work [SME: 5532]
 

@@ -1,10 +1,10 @@
-# $Id: smeserver-support.spec,v 1.29 2009/10/27 18:14:57 slords Exp $
+# $Id: smeserver-support.spec,v 1.30 2009/12/09 20:27:12 charliebrady Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 2.2.0
-%define release 10
+%define release 11
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -20,6 +20,7 @@ Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 Source1: smeserver_logo.jpg
 Source2: smeserver_logo.gif
+Patch0: smeserver-support.bug5656.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
 BuildArchitectures: noarch
@@ -250,6 +251,9 @@ Conflicts: dungog-mailblocking
 Obsoletes: rkhunter <= 1.3.4-7.el5.sme
 
 %changelog
+* Wed Dec  9 2009 Charlie Brady <charlieb@budge.apana.org.au> 2.2.0-11.sme
+- Fix css validation errors. [SME: 5656]
+
 * Tue Oct 27 2009 Shad L. Lords <slords@mail.com> 2.2.0-10.sme
 - Add support for Polish (pl). [SME: 5434]
 - Add support for Thai (th). [SME: 5466]
@@ -884,6 +888,7 @@ SME Server module to display support and licensing information
 
 %prep
 %setup
+%patch0 -p1
 cp %{SOURCE1} root/etc/e-smith/web/common
 cp %{SOURCE2} root/etc/e-smith/web/common
 

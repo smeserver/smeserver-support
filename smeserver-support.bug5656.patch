@@ -1,0 +1,13 @@
+--- smeserver-support-2.2.0/root/etc/e-smith/templates/etc/e-smith/web/common/css/sme_main.css/90contribs.bug5656	2009-12-09 15:22:48.000000000 -0500
++++ smeserver-support-2.2.0/root/etc/e-smith/templates/etc/e-smith/web/common/css/sme_main.css/90contribs	2009-12-09 15:23:33.000000000 -0500
+@@ -15,8 +15,8 @@
+ td.sme-border-center {
+ border: 1px solid #dddddd;
+     }
+-td.sme-border-right (text-align: right;)
+-td.sme-border-center (text-align: center;)
++td.sme-border-right {text-align: right;}
++td.sme-border-center {text-align: center;}
+ th.sme-border {
+ border: 1px solid #dddddd;
+ background-color: #eeeeee;

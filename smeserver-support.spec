@@ -1,17 +1,10 @@
-# $Id: smeserver-support.spec,v 1.30 2009/12/09 20:27:12 charliebrady Exp $
+# $Id: smeserver-support.spec,v 1.31 2010/05/17 18:45:54 snetram Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 2.2.0
-%define release 11
-
-# These packages come from CentOS, but wee need to use care when 
-# updating them - either we've patched them, or we need to do something
-# prior to taking the update
-
-# TODO: check mkinitrd,mdadm to see if needed
-%define centos_excludes initscripts
+%define release 12
 
 Version: %{version}
 Release: %{release}%{?dist}
@@ -251,6 +244,9 @@ Conflicts: dungog-mailblocking
 Obsoletes: rkhunter <= 1.3.4-7.el5.sme
 
 %changelog
+* Mon May 17 2010 Jonathan Martens <smeserver-contribs@snetram.nl> 2.2.0-12.sme
+- Migrate CentOS Exclude property default values to smeserver-yum [SME: 5962]
+
 * Wed Dec  9 2009 Charlie Brady <charlieb@budge.apana.org.au> 2.2.0-11.sme
 - Fix css validation errors. [SME: 5656]
 
@@ -896,13 +892,6 @@ cp %{SOURCE2} root/etc/e-smith/web/common
 perl createlinks
 
 ln -s initial.cgi root/etc/e-smith/locale/en-us/etc/e-smith/web/functions/index.cgi
-
-YUM_REPOS=root/etc/e-smith/db/yum_repositories/
-for dir in base updates
-do
-    mkdir -p $YUM_REPOS/defaults/$dir
-    echo %{centos_excludes} > $YUM_REPOS/defaults/$dir/Exclude
-done
 
 %install
 rm -rf $RPM_BUILD_ROOT

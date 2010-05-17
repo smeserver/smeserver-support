@@ -1,0 +1,30 @@
+diff -up smeserver-support-2.2.0/root/etc/e-smith/db/yum_repositories/migrate/25CentOSExcludes.migrate_excludes smeserver-support-2.2.0/root/etc/e-smith/db/yum_repositories/migrate/25CentOSExcludes
+--- smeserver-support-2.2.0/root/etc/e-smith/db/yum_repositories/migrate/25CentOSExcludes.migrate_excludes	2010-05-17 13:36:02.000000000 -0600
++++ smeserver-support-2.2.0/root/etc/e-smith/db/yum_repositories/migrate/25CentOSExcludes	2010-05-17 13:35:50.000000000 -0600
+@@ -0,0 +1,26 @@
++{
++    my @add = split(/[,; ]+/, 'CENTOS_EXCLUDES');
++    my %remove = map { $_ => 1 } split(/[,; ]+/, 'CENTOS_REMOVE');
++
++    for my $name ( qw(base updates) )
++    {
++	my $repo = $DB->get($name) or next;
++
++        my @exclude = split(/,/, $repo->prop('Exclude') || '');
++        push @exclude, @add;
++        @exclude = grep(!defined $remove{$_} && !/^CENTOS_/, @exclude);
++
++        # remove duplicates
++        undef %saw;
++        @exclude = grep(!$saw{$_}++, @exclude);
++    
++        if ($#exclude >= 0)
++        {
++            $repo->set_prop('Exclude', join(',', @exclude));
++        }
++        else
++        {
++            $repo->delete('Exclude');
++        }
++    }
++}

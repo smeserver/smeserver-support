@@ -1,17 +1,18 @@
-# $Id: smeserver-support.spec,v 1.32 2010/05/17 19:15:50 snetram Exp $
+# $Id: smeserver-support.spec,v 1.33 2010/05/17 19:42:00 slords Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 2.2.0
-%define release 13
+%define release 14
 
 # These packages come from CentOS, but wee need to use care when
 # updating them - either we've patched them, or we need to do something
 # prior to taking the update
 
 # TODO: check mkinitrd,mdadm to see if needed
-%define centos_excludes initscripts
+%define centos_excludes initscripts,libgsf
+%define centos_remove   kernel,kernel-smp,kernel-xenU,mkinitrd,mdadm
 
 Version: %{version}
 Release: %{release}%{?dist}
@@ -21,6 +22,7 @@ Source: %{name}-%{version}.tar.gz
 Source1: smeserver_logo.jpg
 Source2: smeserver_logo.gif
 Patch0: smeserver-support.bug5656.patch
+Patch1: smeserver-support-2.2.0-migrate_excludes.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools >= 1.7.5
 BuildArchitectures: noarch
@@ -251,6 +253,9 @@ Conflicts: dungog-mailblocking
 Obsoletes: rkhunter <= 1.3.4-7.el5.sme
 
 %changelog
+* Mon May 17 2010 Shad L. Lords <slords@mail.com> 2.2.0-14.sme
+- Add migrate fragment for centos excludes [SME: 5960]
+
 * Mon May 17 2010 Jonathan Martens <smeserver-contribs@snetram.nl> 2.2.0-13.sme
 - Reverting previous change [SME: 5962]
 
@@ -895,6 +900,7 @@ SME Server module to display support and licensing information
 %prep
 %setup
 %patch0 -p1
+%patch1 -p1
 cp %{SOURCE1} root/etc/e-smith/web/common
 cp %{SOURCE2} root/etc/e-smith/web/common
 
@@ -909,6 +915,8 @@ do
     mkdir -p $YUM_REPOS/defaults/$dir
     echo %{centos_excludes} > $YUM_REPOS/defaults/$dir/Exclude
 done
+sed -i 's/CENTOS_EXCLUDES/%{centos_excludes}/' $YUM_REPOS/migrate/25CentOSExcludes
+sed -i 's/CENTOS_REMOVE/%{centos_remove}/' $YUM_REPOS/migrate/25CentOSExcludes
 
 %install
 rm -rf $RPM_BUILD_ROOT

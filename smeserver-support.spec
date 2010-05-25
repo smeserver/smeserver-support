@@ -1,10 +1,10 @@
-# $Id: smeserver-support.spec,v 1.25 2009/10/27 18:14:57 slords Exp $
+# $Id: smeserver-support.spec,v 1.26 2010/05/25 15:31:38 slords Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 2.0.0
-%define release 7
+%define release 8
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -97,6 +97,7 @@ Requires: smeserver-locale-el
 Requires: smeserver-locale-es
 Requires: smeserver-locale-et
 Requires: smeserver-locale-fr
+Requires: smeserver-locale-he
 Requires: smeserver-locale-hu
 Requires: smeserver-locale-id
 Requires: smeserver-locale-it
@@ -235,6 +236,9 @@ Conflicts: dungog-mailblocking
 Obsoletes: rkhunter <= 1.3.4-7.el4.sme
 
 %changelog
+* Tue May 25 2010 Shad L. Lords <slords@mail.com> - 2.0.0-8.sme
+- Add support for Hebrew (he). [SME: 5970]
+
 * Tue Oct 27 2009 Shad L. Lords <slords@mail.com> 2.0.0-7.sme
 - Add support for Polish (pl). [SME: 5433]
 - Add support for Thai (th). [SME: 5466]

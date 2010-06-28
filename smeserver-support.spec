@@ -1,10 +1,10 @@
-# $Id: smeserver-support.spec,v 1.34 2010/05/25 15:31:38 slords Exp $
+# $Id: smeserver-support.spec,v 1.35 2010/06/28 15:33:08 charliebrady Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 2.2.0
-%define release 15
+%define release 16
 
 # These packages come from CentOS, but wee need to use care when
 # updating them - either we've patched them, or we need to do something
@@ -189,6 +189,9 @@ Conflicts: e-smith-userpanel
 Obsoletes: dmc-mitel-mailrules
 Conflicts: dmc-mitel-mailrules
 
+Obsoletes: php5-cgi
+Conflicts: php5-cgi
+
 # This block used to be in the SMEServer RPM. Many are probably 
 # redundant or should be elsewhere or removed
 # [SF: 1356225]
@@ -254,6 +257,9 @@ Conflicts: dungog-mailblocking
 Obsoletes: rkhunter <= 1.3.4-7.el5.sme
 
 %changelog
+* Mon Jun 28 2010 Charlie Brady <charlieb@budge.apana.org.au> 2.2.0-16.sme
+- Add Obsoletes for php5-cgi. [SME: 6089]
+
 * Tue May 25 2010 Shad L. Lords <slords@mail.com> - 2.2.0-15.sme
 - Add support for Hebrew (he). [SME: 5971]
 

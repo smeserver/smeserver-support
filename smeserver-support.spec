@@ -1,10 +1,10 @@
-# $Id: smeserver-support.spec,v 1.35 2010/06/28 15:33:08 charliebrady Exp $
+# $Id: smeserver-support.spec,v 1.36 2010/06/29 14:47:51 charliebrady Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 2.2.0
-%define release 16
+%define release 17
 
 # These packages come from CentOS, but wee need to use care when
 # updating them - either we've patched them, or we need to do something
@@ -191,6 +191,16 @@ Conflicts: dmc-mitel-mailrules
 
 Obsoletes: php5-cgi
 Conflicts: php5-cgi
+Obsoletes: php5-cgi-imap
+Conflicts: php5-cgi-imap
+Obsoletes: php5-cgi-ldap
+Conflicts: php5-cgi-ldap
+Obsoletes: php5-cgi-mysql
+Conflicts: php5-cgi-mysql
+Obsoletes: php5-cgi-pear
+Conflicts: php5-cgi-pear
+Obsoletes: php5-cgi-xmlrpc
+Conflicts: php5-cgi-xmlrpc
 
 # This block used to be in the SMEServer RPM. Many are probably 
 # redundant or should be elsewhere or removed
@@ -257,6 +267,9 @@ Conflicts: dungog-mailblocking
 Obsoletes: rkhunter <= 1.3.4-7.el5.sme
 
 %changelog
+* Tue Jun 29 2010 Charlie Brady <charlieb@budge.apana.org.au> 2.2.0-17.sme
+- Add Obsoletes for php5-cgi-{imap,ldap,mysql,pear,xmlrpc}. [SME: 6089]
+
 * Mon Jun 28 2010 Charlie Brady <charlieb@budge.apana.org.au> 2.2.0-16.sme
 - Add Obsoletes for php5-cgi. [SME: 6089]
 

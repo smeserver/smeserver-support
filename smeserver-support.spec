@@ -1,10 +1,10 @@
-# $Id: smeserver-support.spec,v 1.26 2010/05/25 15:31:38 slords Exp $
+# $Id: smeserver-support.spec,v 1.27 2010/07/13 18:09:09 slords Exp $
 
 Summary: SME Server module to display support and licensing information
 %define name smeserver-support
 Name: %{name}
 %define version 2.0.0
-%define release 8
+%define release 9
 
 # These packages come from CentOS, but wee need to use care when 
 # updating them - either we've patched them, or we need to do something
@@ -114,6 +114,7 @@ Requires: smeserver-locale-sv
 Requires: smeserver-locale-th
 Requires: smeserver-locale-tr
 Requires: smeserver-locale-zh_CN
+Requires: smeserver-locale-zh_TW
 
 # These should be re-pulled by other e-smith packages.
 Obsoletes: perl-File-MMagic = 1.22-1
@@ -236,6 +237,9 @@ Conflicts: dungog-mailblocking
 Obsoletes: rkhunter <= 1.3.4-7.el4.sme
 
 %changelog
+* Tue Jul 13 2010 Shad L. Lords <slords@mail.com> - 2.0.0-9.sme
+- Add support for Chinese (Taiwan) (zh_TW). [SME: 6106]
+
 * Tue May 25 2010 Shad L. Lords <slords@mail.com> - 2.0.0-8.sme
 - Add support for Hebrew (he). [SME: 5970]
 
